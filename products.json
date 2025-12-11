@@ -1,0 +1,1012 @@
+[
+    {
+      "name": "iPhone 15 Pro Max 256GB",
+      "sku": "IPH15PM-256-TIT",
+      "description": "The iPhone 15 Pro Max features a stunning 6.7-inch Super Retina XDR display with ProMotion technology, delivering smooth 120Hz refresh rates. Powered by the revolutionary A17 Pro chip, this device offers exceptional performance for gaming, photography, and productivity. The titanium design provides premium durability while maintaining a lightweight feel. The advanced camera system includes a 48MP main camera with sensor-shift optical image stabilization, 12MP ultra-wide, and 12MP telephoto with 5x optical zoom. Capture stunning photos and videos with ProRAW and ProRes capabilities. Features USB-C connectivity, Action Button for quick access to favorite functions, and all-day battery life. Available in Natural Titanium finish.",
+      "price": 1199.00,
+      "cost_price": 899.00,
+      "stock_quantity": 45,
+      "low_stock_threshold": 10,
+      "weight": 221.0,
+      "dimensions": {
+        "length": 16.0,
+        "width": 7.8,
+        "height": 0.83,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartphone", "apple", "iphone", "5g", "pro", "titanium"],
+      "images": [
+        "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Apple"
+    },
+    {
+      "name": "Samsung Galaxy S24 Ultra 512GB",
+      "sku": "SGS24U-512-BLK",
+      "description": "The Samsung Galaxy S24 Ultra is a powerhouse smartphone featuring a massive 6.8-inch Dynamic AMOLED 2X display with 120Hz refresh rate and 2600 nits peak brightness. Equipped with the Snapdragon 8 Gen 3 processor, it delivers flagship performance for multitasking and gaming. The revolutionary S Pen is integrated, allowing for precise note-taking and creative work. The camera system is exceptional with a 200MP main sensor, 50MP periscope telephoto with 5x optical zoom, 10MP telephoto with 3x zoom, and 12MP ultra-wide. Advanced AI features enhance photography and video recording. Built with Gorilla Glass Armor for superior durability and includes S Pen functionality. Features 5G connectivity, wireless charging, and reverse wireless charging capabilities.",
+      "price": 1299.00,
+      "cost_price": 979.00,
+      "stock_quantity": 32,
+      "low_stock_threshold": 8,
+      "weight": 233.0,
+      "dimensions": {
+        "length": 16.3,
+        "width": 7.9,
+        "height": 0.88,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartphone", "samsung", "galaxy", "5g", "s-pen", "android"],
+      "images": [
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+        "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Samsung"
+    },
+    {
+      "name": "MacBook Pro 16-inch M3 Pro",
+      "sku": "MBP16-M3P-1TB-SLV",
+      "description": "The MacBook Pro 16-inch with M3 Pro chip redefines professional computing with exceptional performance and efficiency. Featuring a stunning Liquid Retina XDR display with 3456x2234 resolution, ProMotion technology, and 1000 nits sustained brightness. The M3 Pro chip with 12-core CPU and 18-core GPU delivers blazing-fast performance for video editing, 3D rendering, and software development. Includes 18GB unified memory and 1TB SSD storage. The advanced thermal system keeps the laptop cool under heavy workloads. Features a 1080p FaceTime HD camera, six-speaker sound system with Spatial Audio, and studio-quality microphones. Connectivity includes three Thunderbolt 4 ports, HDMI, SDXC card slot, and MagSafe 3 charging. All-day battery life up to 22 hours of video playback.",
+      "price": 2499.00,
+      "cost_price": 1899.00,
+      "stock_quantity": 18,
+      "low_stock_threshold": 5,
+      "weight": 2100.0,
+      "dimensions": {
+        "length": 35.57,
+        "width": 24.81,
+        "height": 1.68,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["laptop", "macbook", "apple", "m3", "pro", "professional"],
+      "images": [
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Apple"
+    },
+    {
+      "name": "Dell XPS 15 OLED Laptop",
+      "sku": "DLL-XPS15-OLED-1TB",
+      "description": "The Dell XPS 15 is a premium creator laptop featuring a breathtaking 15.6-inch OLED 3.5K touch display with 100% DCI-P3 color coverage and HDR support. Powered by Intel Core i7-13700H processor and NVIDIA RTX 4050 graphics card, it handles demanding creative workflows with ease. The sleek aluminum chassis houses 16GB DDR5 RAM and 1TB PCIe NVMe SSD for fast performance. The InfinityEdge display provides an immersive viewing experience with minimal bezels. Features include a comfortable backlit keyboard, precision touchpad, and comprehensive port selection including Thunderbolt 4, USB-C, and SD card reader. The laptop is optimized for content creation, video editing, and graphic design with excellent color accuracy and performance.",
+      "price": 2199.00,
+      "cost_price": 1649.00,
+      "stock_quantity": 24,
+      "low_stock_threshold": 6,
+      "weight": 1950.0,
+      "dimensions": {
+        "length": 34.4,
+        "width": 23.0,
+        "height": 1.8,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["laptop", "dell", "xps", "oled", "creator", "windows"],
+      "images": [
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+        "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Dell"
+    },
+    {
+      "name": "Nike Air Max 270 Running Shoes",
+      "sku": "NK-AM270-BLK-10",
+      "description": "The Nike Air Max 270 running shoes combine style and performance with the largest Air unit in Nike history. The 270-degree visible Air unit provides exceptional cushioning and impact protection during runs. The engineered mesh upper offers breathability and a secure fit, while the rubber outsole delivers durable traction on various surfaces. The modern design features bold colorways and the iconic Air Max aesthetic. Perfect for daily runs, gym workouts, and casual wear. The shoes provide excellent comfort for long-distance running with responsive cushioning that adapts to your stride. Available in multiple sizes and color options to match your style.",
+      "price": 150.00,
+      "cost_price": 75.00,
+      "stock_quantity": 87,
+      "low_stock_threshold": 15,
+      "weight": 320.0,
+      "dimensions": {
+        "length": 30.0,
+        "width": 12.0,
+        "height": 12.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["shoes", "running", "nike", "sneakers", "athletic", "sport"],
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+        "https://images.unsplash.com/photo-1460353581641-37baddab0fa2"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Nike"
+    },
+    {
+      "name": "Adidas Ultraboost 22 Running Shoes",
+      "sku": "ADS-UB22-WHT-9",
+      "description": "The Adidas Ultraboost 22 represents the pinnacle of running shoe technology with Primeknit+ upper that adapts to your foot's natural movement. The Boost midsole provides exceptional energy return and cushioning, making every step feel responsive and comfortable. The Continental rubber outsole offers superior grip on both wet and dry surfaces. The Primeknit material provides a sock-like fit with targeted support zones. These shoes are perfect for long-distance running, providing excellent comfort and performance. The sleek design and premium materials make them suitable for both training and casual wear. Engineered for runners who demand the best in comfort and performance.",
+      "price": 180.00,
+      "cost_price": 90.00,
+      "stock_quantity": 65,
+      "low_stock_threshold": 12,
+      "weight": 310.0,
+      "dimensions": {
+        "length": 29.5,
+        "width": 11.5,
+        "height": 11.5,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["shoes", "running", "adidas", "ultraboost", "athletic", "sport"],
+      "images": [
+        "https://images.unsplash.com/photo-1460353581641-37baddab0fa2",
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Adidas"
+    },
+    {
+      "name": "Levi's 501 Original Fit Jeans",
+      "sku": "LEV-501-BLU-32-32",
+      "description": "The Levi's 501 Original Fit Jeans are the iconic straight-leg jeans that started it all. Made from premium denim with the classic button fly, these jeans feature the original fit that sits at the waist and tapers slightly through the leg. The durable construction and timeless design make them a wardrobe essential. The 100% cotton denim provides comfort and durability, while the classic five-pocket design offers functional storage. These jeans are versatile enough for casual wear, work, or dressing up. The authentic Levi's quality ensures these jeans will last for years. Available in various washes from dark indigo to faded blue.",
+      "price": 89.99,
+      "cost_price": 35.00,
+      "stock_quantity": 142,
+      "low_stock_threshold": 20,
+      "weight": 680.0,
+      "dimensions": {
+        "length": 105.0,
+        "width": 40.0,
+        "height": 2.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["jeans", "levis", "denim", "casual", "mens", "classic"],
+      "images": [
+        "https://images.unsplash.com/photo-1542272604-787c3835535d",
+        "https://images.unsplash.com/photo-1473966968600-fa801b869a1a"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1542272604-787c3835535d",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Levi's"
+    },
+    {
+      "name": "The North Face Apex Flex GTX Jacket",
+      "sku": "TNF-APX-FLX-BLK-M",
+      "description": "The North Face Apex Flex GTX Jacket combines weather protection with exceptional flexibility. Built with GORE-TEX technology, this jacket provides waterproof and breathable protection from the elements. The stretch-woven fabric allows for full range of motion, making it perfect for hiking, climbing, and outdoor adventures. Features include a helmet-compatible hood, zippered chest pocket, and adjustable cuffs. The durable construction withstands harsh weather conditions while maintaining comfort. The sleek design works well for both technical outdoor activities and urban wear. This jacket is an essential piece for anyone who spends time outdoors in variable weather conditions.",
+      "price": 299.00,
+      "cost_price": 150.00,
+      "stock_quantity": 38,
+      "low_stock_threshold": 8,
+      "weight": 520.0,
+      "dimensions": {
+        "length": 75.0,
+        "width": 55.0,
+        "height": 3.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["jacket", "outdoor", "waterproof", "goretex", "hiking", "northface"],
+      "images": [
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+        "https://images.unsplash.com/photo-1539533018447-63fcce2678e3"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "The North Face"
+    },
+    {
+      "name": "Patagonia Better Sweater Fleece Jacket",
+      "sku": "PAT-BSW-FLZ-GRN-L",
+      "description": "The Patagonia Better Sweater Fleece Jacket is a versatile mid-layer made from 100% recycled polyester fleece. The full-zip design makes it easy to layer and adjust for temperature changes. Features include zippered chest pocket, stand-up collar, and rib-knit cuffs and hem for a secure fit. The soft, comfortable fabric provides excellent warmth without bulk. Perfect for hiking, camping, or casual everyday wear. The sustainable construction uses recycled materials, aligning with Patagonia's environmental commitment. The classic design and quality construction make this a long-lasting addition to any outdoor wardrobe.",
+      "price": 99.00,
+      "cost_price": 50.00,
+      "stock_quantity": 56,
+      "low_stock_threshold": 10,
+      "weight": 380.0,
+      "dimensions": {
+        "length": 70.0,
+        "width": 52.0,
+        "height": 2.5,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["jacket", "fleece", "outdoor", "patagonia", "sustainable", "warm"],
+      "images": [
+        "https://images.unsplash.com/photo-1539533018447-63fcce2678e3",
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Patagonia"
+    },
+    {
+      "name": "Sony WH-1000XM5 Wireless Noise Canceling Headphones",
+      "sku": "SNY-WH1000XM5-BLK",
+      "description": "The Sony WH-1000XM5 headphones represent the pinnacle of noise-canceling technology with industry-leading performance. Featuring new Integrated Processor V1 and dual noise sensor technology, these headphones provide exceptional noise cancellation across a wide range of frequencies. The 30mm driver units deliver high-resolution audio with exceptional clarity and deep bass. Quick Attention mode allows you to quickly hear your surroundings by covering the right earcup. Up to 30 hours of battery life with quick charge providing 3 hours of playback from just 3 minutes of charging. The comfortable design features soft earpads and an adjustable headband. Multipoint pairing allows connection to two devices simultaneously. Perfect for travel, work, and music enjoyment.",
+      "price": 399.99,
+      "cost_price": 250.00,
+      "stock_quantity": 41,
+      "low_stock_threshold": 8,
+      "weight": 250.0,
+      "dimensions": {
+        "length": 20.5,
+        "width": 18.5,
+        "height": 8.0,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["headphones", "wireless", "noise-canceling", "sony", "audio", "bluetooth"],
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Sony"
+    },
+    {
+      "name": "Apple AirPods Pro (2nd Generation)",
+      "sku": "APL-APP2-WHT",
+      "description": "The Apple AirPods Pro (2nd Generation) feature advanced Active Noise Cancellation that adapts to your environment, blocking out the world so you can focus on what you're listening to. The custom-built driver delivers rich, detailed sound with powerful bass. Spatial Audio with dynamic head tracking creates an immersive listening experience. The H2 chip enables smarter noise cancellation and more efficient battery life. Up to 6 hours of listening time with Active Noise Cancellation enabled, and up to 30 hours total with the MagSafe Charging Case. The case now includes a built-in speaker for Find My alerts and a lanyard loop. Touch controls allow you to adjust volume, skip tracks, and answer calls. IPX4 sweat and water resistant.",
+      "price": 249.00,
+      "cost_price": 150.00,
+      "stock_quantity": 78,
+      "low_stock_threshold": 15,
+      "weight": 56.0,
+      "dimensions": {
+        "length": 6.0,
+        "width": 2.4,
+        "height": 2.1,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["earbuds", "wireless", "apple", "airpods", "noise-canceling", "bluetooth"],
+      "images": [
+        "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1",
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Apple"
+    },
+    {
+      "name": "Samsung 55-inch QLED 4K Smart TV",
+      "sku": "SMS-55Q80C-QLED",
+      "description": "The Samsung 55-inch QLED 4K Smart TV delivers stunning picture quality with Quantum Dot technology that produces over a billion shades of color. The 4K UHD resolution provides crystal-clear images with exceptional detail. Quantum HDR enhances contrast and brightness for a more immersive viewing experience. The Quantum Processor 4K uses AI to upscale content to near-4K quality. Features include HDR10+ support, Object Tracking Sound for immersive audio, and Samsung's Tizen smart TV platform with access to all major streaming services. The sleek design features a slim bezel and clean cable management. Gaming features include 120Hz refresh rate and low input lag for smooth gameplay. Perfect for movies, sports, and gaming.",
+      "price": 899.99,
+      "cost_price": 650.00,
+      "stock_quantity": 22,
+      "low_stock_threshold": 5,
+      "weight": 18500.0,
+      "dimensions": {
+        "length": 123.0,
+        "width": 71.0,
+        "height": 6.5,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["tv", "smart-tv", "4k", "qled", "samsung", "entertainment"],
+      "images": [
+        "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1",
+        "https://images.unsplash.com/photo-1593784991095-a205069470b6"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Samsung"
+    },
+    {
+      "name": "Canon EOS R6 Mark II Mirrorless Camera",
+      "sku": "CNN-EOSR6M2-BDY",
+      "description": "The Canon EOS R6 Mark II is a full-frame mirrorless camera designed for photographers and videographers who demand professional performance. Features a 24.2MP full-frame CMOS sensor with Dual Pixel CMOS AF II for fast and accurate autofocus. Capable of shooting up to 40 fps with electronic shutter and 12 fps with mechanical shutter. Excellent low-light performance with native ISO range up to 102,400. 4K video recording at up to 60p with 10-bit internal recording and Canon Log 3 support. The 5-axis in-body image stabilization works with lens stabilization for up to 8 stops of shake correction. Features a vari-angle touchscreen LCD, high-resolution electronic viewfinder, and dual SD card slots. Perfect for sports, wildlife, wedding, and video production.",
+      "price": 2499.00,
+      "cost_price": 1899.00,
+      "stock_quantity": 12,
+      "low_stock_threshold": 3,
+      "weight": 670.0,
+      "dimensions": {
+        "length": 13.8,
+        "width": 9.8,
+        "height": 8.4,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["camera", "mirrorless", "canon", "photography", "4k", "professional"],
+      "images": [
+        "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a",
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Canon"
+    },
+    {
+      "name": "Nintendo Switch OLED Console",
+      "sku": "NIN-SW-OLED-WHT",
+      "description": "The Nintendo Switch OLED features a vibrant 7-inch OLED screen that makes games pop with vivid colors and crisp contrast. The enhanced audio provides a more immersive gaming experience. The wide adjustable stand makes tabletop mode more comfortable for multiplayer gaming. Includes 64GB of internal storage, double the original model. The dock features a wired LAN port for stable online play. Play at home on your TV or take the console anywhere for handheld gaming. Compatible with all Nintendo Switch games and accessories. The Joy-Con controllers feature HD Rumble and motion controls. Perfect for family gaming, party games, and solo adventures. Experience Nintendo's exclusive titles like The Legend of Zelda, Mario, and more.",
+      "price": 349.99,
+      "cost_price": 250.00,
+      "stock_quantity": 67,
+      "low_stock_threshold": 12,
+      "weight": 420.0,
+      "dimensions": {
+        "length": 24.0,
+        "width": 10.2,
+        "height": 1.4,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["gaming", "console", "nintendo", "switch", "portable", "handheld"],
+      "images": [
+        "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3",
+        "https://images.unsplash.com/photo-1607853202273-797f1c22a38e"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Nintendo"
+    },
+    {
+      "name": "Ray-Ban Aviator Classic Sunglasses",
+      "sku": "RB-AV-3025-58-GLD",
+      "description": "The Ray-Ban Aviator Classic Sunglasses feature the iconic teardrop-shaped lenses that have defined aviator style since 1937. Made with precision-crafted metal frames and crystal green lenses that reduce glare without distorting colors. The lightweight design provides all-day comfort. The lenses offer 100% UV protection and are impact-resistant. The adjustable nose pads ensure a perfect fit. These timeless sunglasses are perfect for driving, outdoor activities, and everyday wear. The classic gold frame with green lenses is the most recognizable style, but available in multiple frame and lens color combinations. A true icon of style and function.",
+      "price": 154.00,
+      "cost_price": 65.00,
+      "stock_quantity": 89,
+      "low_stock_threshold": 15,
+      "weight": 28.0,
+      "dimensions": {
+        "length": 15.0,
+        "width": 6.0,
+        "height": 2.0,
+        "unit": "cm"
+      },
+      "category": "Accessories",
+      "tags": ["sunglasses", "rayban", "aviator", "eyewear", "uv-protection", "classic"],
+      "images": [
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Ray-Ban"
+    },
+    {
+      "name": "Oakley Holbrook RX Prescription Sunglasses",
+      "sku": "OKL-HLB-RX-BLK-54",
+      "description": "The Oakley Holbrook RX Prescription Sunglasses combine iconic style with Oakley's advanced lens technology. The O Matter frame material provides lightweight durability and all-day comfort. High Definition Optics (HDO) ensures clarity and impact resistance. The lenses are available with prescription and can include Oakley's Prizm lens technology for enhanced color and contrast. The classic square frame design works well for various face shapes. Perfect for those who need prescription lenses but want the style and protection of premium sunglasses. Available in multiple frame colors and lens options to match your prescription needs and personal style.",
+      "price": 199.00,
+      "cost_price": 95.00,
+      "stock_quantity": 54,
+      "low_stock_threshold": 10,
+      "weight": 32.0,
+      "dimensions": {
+        "length": 15.5,
+        "width": 6.2,
+        "height": 2.2,
+        "unit": "cm"
+      },
+      "category": "Accessories",
+      "tags": ["sunglasses", "oakley", "prescription", "eyewear", "prizm", "sport"],
+      "images": [
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f",
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Oakley"
+    },
+    {
+      "name": "Fossil Gen 6 Smartwatch",
+      "sku": "FSL-GEN6-BLK-44MM",
+      "description": "The Fossil Gen 6 Smartwatch combines classic watch design with modern smartwatch functionality. Features a vibrant AMOLED display that's always on, showing your watch face and notifications. Powered by Qualcomm Snapdragon Wear 4100+ platform for fast performance. Tracks your activity, heart rate, sleep, and more with built-in sensors. Google Wear OS provides access to apps, Google Assistant, and Google Pay. The watch is water-resistant up to 3ATM and includes fast charging that provides a full day of battery in just 30 minutes. The premium stainless steel case and interchangeable bands allow you to customize your style. Perfect for staying connected while maintaining a classic watch aesthetic.",
+      "price": 299.00,
+      "cost_price": 150.00,
+      "stock_quantity": 43,
+      "low_stock_threshold": 8,
+      "weight": 65.0,
+      "dimensions": {
+        "length": 4.4,
+        "width": 4.4,
+        "height": 1.2,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartwatch", "wearable", "fossil", "fitness", "android", "health"],
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+        "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Fossil"
+    },
+    {
+      "name": "Apple Watch Series 9 GPS 45mm",
+      "sku": "APL-AW9-45MM-MID",
+      "description": "The Apple Watch Series 9 is the most advanced Apple Watch yet, featuring the powerful S9 SiP chip for faster performance. The Always-On Retina display is up to 2000 nits bright, making it easy to read in direct sunlight. Advanced health features include blood oxygen monitoring, ECG app, and temperature sensing. The watch tracks your workouts with precision and provides detailed metrics. Safety features include Fall Detection, Emergency SOS, and Crash Detection. The Double Tap gesture allows you to control the watch without touching the screen. Up to 18 hours of battery life with all-day health monitoring. Available in multiple case materials and band options. Perfect for fitness enthusiasts and health-conscious users.",
+      "price": 429.00,
+      "cost_price": 280.00,
+      "stock_quantity": 58,
+      "low_stock_threshold": 10,
+      "weight": 52.0,
+      "dimensions": {
+        "length": 4.5,
+        "width": 3.8,
+        "height": 1.1,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartwatch", "apple", "wearable", "fitness", "health", "gps"],
+      "images": [
+        "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d",
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Apple"
+    },
+    {
+      "name": "Herschel Supply Co. Little America Backpack",
+      "sku": "HSC-LAM-BLK-25L",
+      "description": "The Herschel Supply Co. Little America Backpack combines classic mountaineering style with modern functionality. Features a drawstring closure with a magnetic strap for easy access to the main compartment. The front pocket includes a key clip and media pocket with headphone port. The padded and fleece-lined laptop sleeve accommodates up to 15-inch laptops. The contoured shoulder straps provide comfort during extended wear. The signature striped liner adds a touch of style. Made from durable polyester fabric with reinforced base. Perfect for daily commute, school, travel, or outdoor adventures. The timeless design and quality construction make this backpack a long-lasting companion.",
+      "price": 99.99,
+      "cost_price": 45.00,
+      "stock_quantity": 76,
+      "low_stock_threshold": 12,
+      "weight": 850.0,
+      "dimensions": {
+        "length": 48.0,
+        "width": 30.0,
+        "height": 20.0,
+        "unit": "cm"
+      },
+      "category": "Accessories",
+      "tags": ["backpack", "herschel", "travel", "laptop", "school", "casual"],
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62",
+        "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Herschel"
+    },
+    {
+      "name": "Patagonia Black Hole Pack 25L",
+      "sku": "PAT-BHP-25-BLK",
+      "description": "The Patagonia Black Hole Pack 25L is built for durability and performance with a weather-resistant construction. Made from recycled polyester with a TPU laminate and DWR finish for water resistance. The pack features a top-loading design with a drawstring closure and roll-top for weather protection. The padded back panel and shoulder straps provide comfort during long hikes or commutes. Includes a front zippered pocket, side water bottle pockets, and a laptop sleeve. The daisy chain and gear loops allow for attaching additional gear. Perfect for day hikes, travel, and daily use. The sustainable construction uses recycled materials, reflecting Patagonia's commitment to the environment.",
+      "price": 129.00,
+      "cost_price": 60.00,
+      "stock_quantity": 41,
+      "low_stock_threshold": 8,
+      "weight": 720.0,
+      "dimensions": {
+        "length": 45.0,
+        "width": 28.0,
+        "height": 18.0,
+        "unit": "cm"
+      },
+      "category": "Accessories",
+      "tags": ["backpack", "patagonia", "outdoor", "hiking", "waterproof", "sustainable"],
+      "images": [
+        "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Patagonia"
+    },
+    {
+      "name": "Logitech MX Master 3S Wireless Mouse",
+      "sku": "LGT-MXM3S-GRY",
+      "description": "The Logitech MX Master 3S is the ultimate productivity mouse designed for professionals. Features Darkfield high-precision tracking that works on virtually any surface, including glass. The ergonomic design fits comfortably in your hand for extended use. The MagSpeed electromagnetic scrolling provides precise control with quiet clicks. Customizable buttons and gestures allow you to work more efficiently. The mouse connects via Bluetooth or the included USB receiver, and can pair with up to three devices. The rechargeable battery lasts up to 70 days on a single charge. Perfect for designers, developers, and anyone who spends long hours at the computer. The premium build quality and advanced features make this a worthwhile investment.",
+      "price": 99.99,
+      "cost_price": 50.00,
+      "stock_quantity": 92,
+      "low_stock_threshold": 15,
+      "weight": 141.0,
+      "dimensions": {
+        "length": 12.6,
+        "width": 8.4,
+        "height": 5.1,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["mouse", "wireless", "logitech", "productivity", "ergonomic", "bluetooth"],
+      "images": [
+        "https://images.unsplash.com/photo-1527814050087-3793815479db",
+        "https://images.unsplash.com/photo-1501196359961-e80914d1210d"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1527814050087-3793815479db",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Logitech"
+    },
+    {
+      "name": "Keychron K8 Pro Mechanical Keyboard",
+      "sku": "KYC-K8P-BLU-BRN",
+      "description": "The Keychron K8 Pro is a wireless mechanical keyboard that combines functionality with style. Features Gateron Brown switches that provide tactile feedback without being too loud. The keyboard supports both Bluetooth 5.1 and USB-C wired connections, with the ability to pair with up to three devices. The QMK/VIA software allows for extensive customization of keys and lighting. The compact 87-key layout saves desk space while maintaining full functionality. The double-shot PBT keycaps provide durability and a premium feel. The aluminum frame adds stability and a premium aesthetic. Perfect for typing, programming, and gaming. The long battery life and versatile connectivity make it ideal for both home and office use.",
+      "price": 119.00,
+      "cost_price": 65.00,
+      "stock_quantity": 35,
+      "low_stock_threshold": 7,
+      "weight": 850.0,
+      "dimensions": {
+        "length": 35.8,
+        "width": 12.9,
+        "height": 3.2,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["keyboard", "mechanical", "wireless", "keychron", "typing", "gaming"],
+      "images": [
+        "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+        "https://images.unsplash.com/photo-1541140532154-b024d705b90a"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Keychron"
+    },
+    {
+      "name": "Google Pixel 8 Pro 256GB",
+      "sku": "GGL-PX8P-256-OBS",
+      "description": "The Google Pixel 8 Pro features Google's most advanced AI capabilities with the Tensor G3 chip. The 6.7-inch LTPO OLED display delivers vibrant colors and smooth 120Hz refresh rate. The triple camera system includes a 50MP main sensor, 48MP ultra-wide, and 48MP telephoto with 5x optical zoom. Magic Editor uses AI to transform your photos with advanced editing capabilities. The phone runs pure Android with guaranteed updates for 7 years. Features include Face Unlock, fingerprint sensor, wireless charging, and IP68 water resistance. The premium build with Gorilla Glass Victus 2 provides durability. Perfect for photography enthusiasts and users who want the latest AI features.",
+      "price": 999.00,
+      "cost_price": 750.00,
+      "stock_quantity": 28,
+      "low_stock_threshold": 6,
+      "weight": 213.0,
+      "dimensions": {
+        "length": 16.2,
+        "width": 7.6,
+        "height": 0.88,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartphone", "google", "pixel", "android", "ai", "camera"],
+      "images": [
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+        "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Google"
+    },
+    {
+      "name": "HP Spectre x360 14-inch 2-in-1 Laptop",
+      "sku": "HP-SPX360-14-1TB",
+      "description": "The HP Spectre x360 14-inch is a premium 2-in-1 laptop that transforms from laptop to tablet mode. Features a stunning 13.5-inch OLED touchscreen display with 3K resolution and 100% DCI-P3 color coverage. Powered by Intel Core i7-1355U processor with Intel Iris Xe graphics, 16GB RAM, and 1TB SSD. The 360-degree hinge allows for multiple usage modes. The aluminum chassis is precision-crafted with gem-cut edges for a premium look. Includes HP Pen support for note-taking and creative work. Features include Bang & Olufsen audio, HP True Vision camera, and comprehensive security with fingerprint reader. The long battery life and fast charging make it perfect for professionals on the go.",
+      "price": 1499.00,
+      "cost_price": 1100.00,
+      "stock_quantity": 19,
+      "low_stock_threshold": 5,
+      "weight": 1400.0,
+      "dimensions": {
+        "length": 29.8,
+        "width": 21.0,
+        "height": 1.7,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["laptop", "2-in-1", "hp", "spectre", "oled", "convertible"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "HP"
+    },
+    {
+      "name": "Uniqlo Ultra Light Down Jacket",
+      "sku": "UNQ-ULD-BLK-M",
+      "description": "The Uniqlo Ultra Light Down Jacket is a versatile lightweight jacket perfect for layering in cool weather. Made with high-quality down insulation that provides excellent warmth without bulk. The water-repellent finish protects against light rain and moisture. The compact design packs into its own pocket for easy storage. Features include a stand-up collar, zippered pockets, and elastic cuffs for a secure fit. The durable construction and quality materials ensure long-lasting performance. Available in multiple colors to match your style. Perfect for travel, commuting, or outdoor activities where you need lightweight warmth. The affordable price point makes it accessible for everyone.",
+      "price": 79.90,
+      "cost_price": 35.00,
+      "stock_quantity": 124,
+      "low_stock_threshold": 20,
+      "weight": 240.0,
+      "dimensions": {
+        "length": 68.0,
+        "width": 50.0,
+        "height": 2.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["jacket", "down", "lightweight", "uniqlo", "warm", "packable"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Uniqlo"
+    },
+    {
+      "name": "Carhartt WIP Detroit Jacket",
+      "sku": "CRT-DET-BLK-M",
+      "description": "The Carhartt WIP Detroit Jacket is a modern take on the classic workwear jacket. Made from durable cotton canvas with a water-repellent finish. The relaxed fit provides comfort and freedom of movement. Features include a corduroy collar, snap-button closure, and multiple pockets for storage. The iconic Carhartt quality ensures this jacket will last for years. The timeless design works well for both work and casual wear. The black colorway is versatile and pairs well with any outfit. Perfect for those who appreciate quality workwear with a contemporary aesthetic.",
+      "price": 149.00,
+      "cost_price": 70.00,
+      "stock_quantity": 47,
+      "low_stock_threshold": 10,
+      "weight": 850.0,
+      "dimensions": {
+        "length": 72.0,
+        "width": 56.0,
+        "height": 2.5,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["jacket", "workwear", "carhartt", "canvas", "casual", "durable"],
+      "images": [
+        "https://images.unsplash.com/photo-1539533018447-63fcce2678e3",
+        "https://images.unsplash.com/photo-1551028719-00167b16eac5"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Carhartt"
+    },
+    {
+      "name": "Vans Old Skool Classic Sneakers",
+      "sku": "VNS-OS-BLK-WHT-9",
+      "description": "The Vans Old Skool Classic Sneakers are the iconic skate shoes that started it all. Featuring the signature side stripe and durable suede and canvas upper. The waffle outsole provides excellent grip for skateboarding and everyday wear. The padded collar offers comfort and support. The classic black and white colorway is timeless and versatile. These shoes have been a staple in skate culture and streetwear for decades. Perfect for skating, casual wear, or adding a touch of style to any outfit. The quality construction ensures these shoes will last through countless adventures.",
+      "price": 65.00,
+      "cost_price": 28.00,
+      "stock_quantity": 156,
+      "low_stock_threshold": 25,
+      "weight": 580.0,
+      "dimensions": {
+        "length": 28.0,
+        "width": 11.0,
+        "height": 10.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["shoes", "sneakers", "vans", "skate", "casual", "classic"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Vans"
+    },
+    {
+      "name": "Bose QuietComfort 45 Wireless Headphones",
+      "sku": "BSE-QC45-BLK",
+      "description": "The Bose QuietComfort 45 wireless headphones deliver world-class noise cancellation and premium sound quality. The proprietary noise-canceling technology blocks out distractions so you can focus on your music, work, or relaxation. The comfortable over-ear design features plush ear cushions and a lightweight build for extended wear. Up to 24 hours of battery life with quick charge providing 3 hours from 15 minutes. The intuitive controls allow you to adjust volume, skip tracks, and activate your voice assistant. The balanced audio profile delivers clear highs, rich mids, and deep bass. Perfect for travel, work, or enjoying music at home. The premium build quality ensures these headphones will last for years.",
+      "price": 329.00,
+      "cost_price": 200.00,
+      "stock_quantity": 52,
+      "low_stock_threshold": 10,
+      "weight": 240.0,
+      "dimensions": {
+        "length": 19.0,
+        "width": 17.0,
+        "height": 7.5,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["headphones", "wireless", "noise-canceling", "bose", "audio", "travel"],
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Bose"
+    },
+    {
+      "name": "JBL Flip 6 Portable Bluetooth Speaker",
+      "sku": "JBL-FLP6-BLK",
+      "description": "The JBL Flip 6 is a compact portable Bluetooth speaker that delivers powerful sound in a small package. Features JBL Pro Sound with a racetrack-shaped driver and separate tweeter for clear highs and deep bass. The IP67 waterproof and dustproof rating makes it perfect for pool parties, beach trips, and outdoor adventures. Up to 12 hours of playtime on a single charge. The PartyBoost feature allows you to connect multiple JBL speakers for a bigger sound experience. The durable fabric material and rubber housing protect against drops and impacts. The compact design fits easily in a backpack or bag. Perfect for music lovers who want quality sound on the go.",
+      "price": 129.95,
+      "cost_price": 70.00,
+      "stock_quantity": 68,
+      "low_stock_threshold": 12,
+      "weight": 550.0,
+      "dimensions": {
+        "length": 17.8,
+        "width": 6.8,
+        "height": 7.2,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["speaker", "bluetooth", "portable", "jbl", "waterproof", "wireless"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "JBL"
+    },
+    {
+      "name": "OnePlus 12 256GB",
+      "sku": "OPL-12-256-GRN",
+      "description": "The OnePlus 12 is a flagship smartphone that delivers exceptional performance and value. Features a stunning 6.82-inch LTPO AMOLED display with 120Hz refresh rate and 4500 nits peak brightness. Powered by the Snapdragon 8 Gen 3 processor with up to 16GB RAM for smooth multitasking. The triple camera system includes a 50MP main sensor with Hasselblad tuning, 64MP periscope telephoto with 3x optical zoom, and 48MP ultra-wide. The 5400mAh battery supports 100W SuperVOOC fast charging and 50W wireless charging. Features include OxygenOS based on Android 14, in-display fingerprint sensor, and IP65 water resistance. The premium design with Alert Slider provides a unique user experience.",
+      "price": 799.99,
+      "cost_price": 600.00,
+      "stock_quantity": 34,
+      "low_stock_threshold": 7,
+      "weight": 220.0,
+      "dimensions": {
+        "length": 16.4,
+        "width": 7.6,
+        "height": 0.92,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartphone", "oneplus", "android", "flagship", "fast-charging", "5g"],
+      "images": [
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+        "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "OnePlus"
+    },
+    {
+      "name": "ASUS ROG Zephyrus G14 Gaming Laptop",
+      "sku": "ASU-ROG-G14-1TB",
+      "description": "The ASUS ROG Zephyrus G14 is a powerful gaming laptop in a compact 14-inch form factor. Features an AMD Ryzen 9 7940HS processor and NVIDIA RTX 4060 graphics for exceptional gaming performance. The 14-inch QHD display with 165Hz refresh rate delivers smooth gameplay with vibrant colors. Includes 16GB DDR5 RAM and 1TB PCIe 4.0 SSD for fast load times. The AniMe Matrix LED display on the lid allows for custom animations and notifications. The keyboard features per-key RGB lighting and excellent key travel. The compact design makes it perfect for gaming on the go. Advanced cooling system with liquid metal thermal compound keeps temperatures low during intense gaming sessions.",
+      "price": 1599.00,
+      "cost_price": 1200.00,
+      "stock_quantity": 15,
+      "low_stock_threshold": 4,
+      "weight": 1650.0,
+      "dimensions": {
+        "length": 32.4,
+        "width": 22.2,
+        "height": 1.79,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["laptop", "gaming", "asus", "rog", "rtx", "amd"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "ASUS"
+    },
+    {
+      "name": "Champion Reverse Weave Hoodie",
+      "sku": "CHP-RWH-GRY-L",
+      "description": "The Champion Reverse Weave Hoodie is a premium heavyweight hoodie made from 12oz cotton fleece. The reverse weave construction prevents shrinking and maintains shape wash after wash. Features include a double-needle stitching throughout, ribbed cuffs and waistband, and a drawstring hood. The classic Champion logo on the chest adds authentic style. The relaxed fit provides comfort for everyday wear. Available in multiple colors to match your style. The quality construction and materials ensure this hoodie will become a wardrobe staple. Perfect for casual wear, workouts, or lounging at home.",
+      "price": 65.00,
+      "cost_price": 30.00,
+      "stock_quantity": 98,
+      "low_stock_threshold": 15,
+      "weight": 750.0,
+      "dimensions": {
+        "length": 75.0,
+        "width": 60.0,
+        "height": 3.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["hoodie", "sweatshirt", "champion", "casual", "comfortable", "classic"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1556821840-3a63f95609a4",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Champion"
+    },
+    {
+      "name": "Garmin Forerunner 965 GPS Watch",
+      "sku": "GRM-FR965-BLK",
+      "description": "The Garmin Forerunner 965 is a premium GPS running watch designed for serious athletes. Features a vibrant AMOLED touchscreen display that's easy to read in any lighting condition. Advanced training metrics include VO2 max, training load, and recovery time. The watch tracks running, cycling, swimming, and over 30 other activities. Built-in maps with turn-by-turn navigation help you explore new routes. The battery lasts up to 23 days in smartwatch mode and 31 hours in GPS mode. Music storage allows you to leave your phone at home. The lightweight titanium bezel and silicone band provide comfort during long training sessions. Perfect for marathon runners, triathletes, and fitness enthusiasts.",
+      "price": 599.99,
+      "cost_price": 400.00,
+      "stock_quantity": 27,
+      "low_stock_threshold": 6,
+      "weight": 52.0,
+      "dimensions": {
+        "length": 4.7,
+        "width": 4.7,
+        "height": 1.3,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["smartwatch", "gps", "garmin", "fitness", "running", "sports"],
+      "images": [
+        "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d",
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "Garmin"
+    },
+    {
+      "name": "Anker PowerCore 26800 Portable Charger",
+      "sku": "ANK-PC26800-BLK",
+      "description": "The Anker PowerCore 26800 is a high-capacity portable charger that can charge your devices multiple times. The massive 26800mAh battery capacity provides enough power for several full charges of smartphones, tablets, and other USB devices. Features PowerIQ technology that automatically detects and delivers the optimal charging speed for your device. The dual USB ports allow you to charge two devices simultaneously. The compact design fits easily in a backpack or bag. The LED indicator shows remaining battery capacity. Perfect for travel, camping, or daily use when you need reliable backup power. The quality construction and safety features ensure safe charging for all your devices.",
+      "price": 59.99,
+      "cost_price": 30.00,
+      "stock_quantity": 112,
+      "low_stock_threshold": 20,
+      "weight": 570.0,
+      "dimensions": {
+        "length": 16.5,
+        "width": 7.5,
+        "height": 2.3,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["charger", "portable", "power-bank", "anker", "usb", "battery"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1609091839311-d5365f5df4d8",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Anker"
+    },
+    {
+      "name": "Tommy Hilfiger Classic Fit Polo Shirt",
+      "sku": "THF-POL-WHT-M",
+      "description": "The Tommy Hilfiger Classic Fit Polo Shirt is a timeless wardrobe essential made from premium pima cotton. The classic fit provides comfort and a polished look. Features include a three-button placket, ribbed collar, and short sleeves. The iconic Tommy Hilfiger flag logo adds authentic style. The breathable fabric keeps you cool and comfortable throughout the day. Available in multiple colors to match your style. Perfect for casual wear, golf, or business casual settings. The quality construction and materials ensure this polo will last for years. A versatile piece that works well on its own or layered under a jacket.",
+      "price": 49.99,
+      "cost_price": 22.00,
+      "stock_quantity": 143,
+      "low_stock_threshold": 25,
+      "weight": 180.0,
+      "dimensions": {
+        "length": 72.0,
+        "width": 52.0,
+        "height": 1.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["polo", "shirt", "tommy-hilfiger", "casual", "classic", "cotton"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Tommy Hilfiger"
+    },
+    {
+      "name": "DJI Mini 4 Pro Drone",
+      "sku": "DJI-MN4P-FLY",
+      "description": "The DJI Mini 4 Pro is a compact drone that packs professional features into a lightweight package. Weighing under 249g, it doesn't require registration in many countries. Features a 1/1.3-inch CMOS sensor that captures 4K/60fps video and 48MP photos. The three-way obstacle sensing system provides comprehensive protection. ActiveTrack 360 allows the drone to automatically follow subjects from any angle. The O4 transmission system provides stable video feed up to 20km away. The battery provides up to 45 minutes of flight time. Perfect for content creators, travelers, and drone enthusiasts who want professional-quality footage in a portable package.",
+      "price": 1099.00,
+      "cost_price": 750.00,
+      "stock_quantity": 21,
+      "low_stock_threshold": 5,
+      "weight": 249.0,
+      "dimensions": {
+        "length": 25.1,
+        "width": 18.0,
+        "height": 8.2,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["drone", "camera", "dji", "4k", "portable", "photography"],
+      "images": [
+        "https://images.unsplash.com/photo-1473968512647-3e447244af8f",
+        "https://images.unsplash.com/photo-1473968512647-3e447244af8f"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f",
+      "is_active": true,
+      "is_featured": true,
+      "brand": "DJI"
+    },
+    {
+      "name": "Razer DeathAdder V3 Pro Wireless Mouse",
+      "sku": "RZR-DA3P-WHT",
+      "description": "The Razer DeathAdder V3 Pro is a professional gaming mouse designed for competitive esports. Features the Focus Pro 30K optical sensor for precise tracking and zero acceleration. The lightweight design at 63g reduces fatigue during long gaming sessions. The Razer HyperSpeed Wireless technology provides ultra-low latency comparable to wired mice. The battery lasts up to 90 hours on a single charge. The ergonomic shape fits comfortably in your hand for extended use. The optical mouse switches provide instant response with zero debounce delay. Perfect for FPS games, MOBAs, and competitive gaming where precision and speed matter most.",
+      "price": 149.99,
+      "cost_price": 85.00,
+      "stock_quantity": 41,
+      "low_stock_threshold": 8,
+      "weight": 63.0,
+      "dimensions": {
+        "length": 12.7,
+        "width": 6.6,
+        "height": 4.3,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["mouse", "gaming", "wireless", "razer", "esports", "precision"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1527814050087-3793815479db",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Razer"
+    },
+    {
+      "name": "Lululemon ABC Pant Classic Fit",
+      "sku": "LUL-ABC-BLK-32-32",
+      "description": "The Lululemon ABC Pant Classic Fit combines the comfort of athletic wear with the style of dress pants. Made from Warpstreme fabric that's stretchy, breathable, and wrinkle-resistant. The gusseted crotch provides freedom of movement for any activity. Features include zippered pockets, a hidden coin pocket, and a comfortable waistband. The classic fit provides a polished look suitable for office or casual wear. The fabric wicks moisture and dries quickly, making it perfect for travel or active days. Available in multiple colors and lengths. The quality construction ensures these pants will maintain their shape and appearance for years.",
+      "price": 128.00,
+      "cost_price": 55.00,
+      "stock_quantity": 67,
+      "low_stock_threshold": 12,
+      "weight": 420.0,
+      "dimensions": {
+        "length": 102.0,
+        "width": 38.0,
+        "height": 2.0,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["pants", "lululemon", "athletic", "comfortable", "travel", "versatile"],
+      "images": [
+        "https://images.unsplash.com/photo-1542272604-787c3835535d",
+        "https://images.unsplash.com/photo-1473966968600-fa801b869a1a"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1542272604-787c3835535d",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Lululemon"
+    },
+    {
+      "name": "SteelSeries Apex Pro TKL Mechanical Keyboard",
+      "sku": "STL-APX-PRO-TKL",
+      "description": "The SteelSeries Apex Pro TKL is a tenkeyless mechanical keyboard with adjustable actuation. The OmniPoint 2.0 switches allow you to adjust actuation from 0.4mm to 3.6mm for personalized responsiveness. The aircraft-grade aluminum frame provides durability and stability. The per-key RGB illumination with 16.8 million colors creates stunning lighting effects. The OLED smart display shows game stats, Discord messages, and media information. The compact TKL design saves desk space while maintaining full functionality. Perfect for gaming, typing, and content creation. The premium build quality and advanced features make this a top choice for serious gamers and professionals.",
+      "price": 199.99,
+      "cost_price": 120.00,
+      "stock_quantity": 29,
+      "low_stock_threshold": 6,
+      "weight": 920.0,
+      "dimensions": {
+        "length": 35.6,
+        "width": 12.9,
+        "height": 3.0,
+        "unit": "cm"
+      },
+      "category": "Electronics",
+      "tags": ["keyboard", "mechanical", "gaming", "steelseries", "rgb", "tkl"],
+      "images": [],
+      "primary_image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "SteelSeries"
+    },
+    {
+      "name": "Allbirds Tree Runners",
+      "sku": "ALB-TR-BLK-10",
+      "description": "The Allbirds Tree Runners are sustainable running shoes made from eucalyptus tree fiber. The breathable upper keeps your feet cool and comfortable. The SweetFoam midsole made from sugarcane provides cushioning and support. The merino wool insole adds natural odor control and moisture-wicking properties. The minimalist design works well for running, walking, or casual wear. The sustainable materials and production process reflect Allbirds' commitment to the environment. The comfortable fit and lightweight design make these perfect for all-day wear. Available in multiple colors to match your style. Perfect for eco-conscious consumers who want comfortable, stylish footwear.",
+      "price": 98.00,
+      "cost_price": 45.00,
+      "stock_quantity": 84,
+      "low_stock_threshold": 15,
+      "weight": 280.0,
+      "dimensions": {
+        "length": 28.5,
+        "width": 11.0,
+        "height": 10.5,
+        "unit": "cm"
+      },
+      "category": "Clothing",
+      "tags": ["shoes", "running", "sustainable", "allbirds", "eco-friendly", "comfortable"],
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+        "https://images.unsplash.com/photo-1460353581641-37baddab0fa2"
+      ],
+      "primary_image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "is_active": true,
+      "is_featured": false,
+      "brand": "Allbirds"
+    }
+]
