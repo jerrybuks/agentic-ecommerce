@@ -44,7 +44,7 @@ class EmbeddingStore:
     
     def __init__(
         self,
-        persist_directory: str = "src/data/vector_store",
+        persist_directory: str = "data/vector_store",
         collection_name: str = "products",
         clear_existing: bool = False
     ):

@@ -43,12 +43,12 @@ ENV/
 *.sqlite3
 
 # Vector Store (ChromaDB)
-src/data/vector_store/
+data/vector_store/
 *.chroma
 
 # Generated chunk data
-src/data/jsonl/product_chunks.jsonl
-src/data/jsonl/handbook_chunks.jsonl
+data/jsonl/product_chunks.jsonl
+data/jsonl/handbook_chunks.jsonl
 
 # Logs
 *.log

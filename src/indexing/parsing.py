@@ -3,8 +3,8 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from src.data.database.connection import SessionLocal
-from src.data.database.product_model import Product
+from data.database.connection import SessionLocal
+from data.database.product_model import Product
 from langchain_core.documents import Document
 
 
@@ -197,7 +197,7 @@ class ProductParser:
 class HandbookParser:
     """Parser for markdown handbook files."""
     
-    def __init__(self, handbook_path: str = "src/data/handbooks/general_handbook.md"):
+    def __init__(self, handbook_path: str = "data/handbooks/general_handbook.md"):
         """
         Initialize the handbook parser.
         

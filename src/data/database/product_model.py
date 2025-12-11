@@ -1,7 +1,7 @@
 """Product model for ecommerce platform."""
 from sqlalchemy import Column, Integer, String, Numeric, Text, Boolean, DateTime, JSON
 from sqlalchemy.sql import func
-from src.data.database.connection import Base
+from data.database.connection import Base
 
 
 class Product(Base):

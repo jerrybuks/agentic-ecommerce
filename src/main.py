@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.config import settings
 from src.routes.admin import router as admin_router
-from src.data.database.connection import engine, Base
+from data.database.connection import engine, Base
 
 # Create database tables
 Base.metadata.create_all(bind=engine)

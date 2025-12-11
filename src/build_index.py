@@ -70,15 +70,15 @@ def index_products(
     print("\nSaving product chunks to JSONL file...")
     chunks_saved = product_chunker.save_chunks_to_jsonl(
         product_chunks,
-        file_path="src/data/jsonl/product_chunks.jsonl"
+        file_path="data/jsonl/product_chunks.jsonl"
     )
-    print(f"✓ Saved {chunks_saved} chunks to src/data/jsonl/product_chunks.jsonl")
+    print(f"✓ Saved {chunks_saved} chunks to data/jsonl/product_chunks.jsonl")
     
     return product_chunks
 
 
 def index_handbook(
-    handbook_path: str = "src/data/handbooks/general_handbook.md",
+    handbook_path: str = "data/handbooks/general_handbook.md",
     chunk_size: int = 1000,
     chunk_overlap: int = 200
 ) -> List[Document]:
@@ -119,9 +119,9 @@ def index_handbook(
         jsonl_chunker = ProductChunker(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         chunks_saved = jsonl_chunker.save_chunks_to_jsonl(
             handbook_chunks,
-            file_path="src/data/jsonl/handbook_chunks.jsonl"
+            file_path="data/jsonl/handbook_chunks.jsonl"
         )
-        print(f"✓ Saved {chunks_saved} chunks to src/data/jsonl/handbook_chunks.jsonl")
+        print(f"✓ Saved {chunks_saved} chunks to data/jsonl/handbook_chunks.jsonl")
         
         return handbook_chunks
         
@@ -165,7 +165,7 @@ def build_index(
     
     # Index handbook
     handbook_chunks = index_handbook(
-        handbook_path="src/data/handbooks/general_handbook.md",
+        handbook_path="data/handbooks/general_handbook.md",
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap
     )
@@ -218,7 +218,7 @@ def build_index(
         print(f"  Embedding Model: {handbook_stats.get('embedding_model', 'N/A')}")
         print(f"  Similarity Metric: {handbook_stats.get('similarity_metric', 'N/A')}")
     
-    print(f"\nVector Store Location: src/data/vector_store")
+    print(f"\nVector Store Location: data/vector_store")
     print("=" * 60)
 
 

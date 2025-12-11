@@ -145,7 +145,7 @@ class ProductChunker:
     def save_chunks_to_jsonl(
         self,
         chunked_documents: List[Document],
-        file_path: str = "src/data/jsonl/product_chunks.jsonl"
+        file_path: str = "data/jsonl/product_chunks.jsonl"
     ) -> int:
         """
         Save chunked documents to a JSONL file.

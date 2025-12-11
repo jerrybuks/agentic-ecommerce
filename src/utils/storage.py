@@ -31,7 +31,7 @@ def store_products_in_vectorstore(
     # clear_existing=True will clear the entire vector_store directory
     # This is fine since we rebuild all collections together
     products_store = EmbeddingStore(
-        persist_directory="src/data/vector_store",
+        persist_directory="data/vector_store",
         collection_name="products",
         clear_existing=clear_existing
     )
@@ -77,7 +77,7 @@ def store_handbook_in_vectorstore(
     # clear_existing=False here since products collection already cleared the directory
     # Both collections are in the same persist_directory, so we only clear once
     handbook_store = EmbeddingStore(
-        persist_directory="src/data/vector_store",
+        persist_directory="data/vector_store",
         collection_name="general_handbook",
         clear_existing=False  # Already cleared by products collection
     )

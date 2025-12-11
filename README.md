@@ -45,10 +45,7 @@ An ecommerce platform with AI agents and admin product management.
 ## Project Structure
 
 ```
-src/
-├── main.py                    # FastAPI application entry point
-├── config.py                  # Configuration settings
-├── build_index.py             # Indexing pipeline orchestration
+agentic-ecommerce/
 ├── data/
 │   ├── database/
 │   │   ├── __init__.py
@@ -62,17 +59,21 @@ src/
 │   │   └── handbook_chunks.jsonl
 │   └── vector_store/          # ChromaDB vector store (gitignored)
 │                               # Contains: products and general_handbook collections
-├── indexing/
-│   ├── __init__.py
-│   ├── parsing.py             # Product and handbook parsing
-│   ├── chunking.py            # Text chunking strategies
-│   └── embeddings.py           # Embedding generation and ChromaDB storage
-├── routes/
-│   ├── __init__.py
-│   └── admin.py               # Admin API routes
-└── utils/
-    ├── __init__.py
-    └── storage.py              # Storage utilities (ChromaDB operations)
+└── src/
+    ├── main.py                # FastAPI application entry point
+    ├── config.py              # Configuration settings
+    ├── build_index.py         # Indexing pipeline orchestration
+    ├── indexing/
+    │   ├── __init__.py
+    │   ├── parsing.py         # Product and handbook parsing
+    │   ├── chunking.py        # Text chunking strategies
+    │   └── embeddings.py      # Embedding generation and ChromaDB storage
+    ├── routes/
+    │   ├── __init__.py
+    │   └── admin.py           # Admin API routes
+    └── utils/
+        ├── __init__.py
+        └── storage.py          # Storage utilities (ChromaDB operations)
 ```
 
 ## Database
@@ -122,7 +123,7 @@ python src/build_index.py
 The index uses:
 - **Embedding Model**: OpenAI `text-embedding-ada-002`
 - **Vector Store**: ChromaDB with cosine similarity
-- **Storage**: `src/data/vector_store/` directory
+- **Storage**: `data/vector_store/` directory
 - **Collections**: 
   - `products` - Product documents
   - `general_handbook` - Customer handbook documents
