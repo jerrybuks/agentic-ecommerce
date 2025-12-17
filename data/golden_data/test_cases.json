@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Golden dataset for Shoplytic e-commerce chatbot evaluation",
+    "created_at": "2024-01-01"
+  },
+  "test_cases": [
+    {
+      "id": "product_search_001",
+      "category": "product_search",
+      "query": "Show me some laptops",
+      "expected_agent": "order",
+      "expected_behavior": "Should search for laptops and return product results",
+      "min_quality_score": 7
+    },
+    {
+      "id": "product_search_002",
+      "category": "product_search",
+      "query": "I'm looking for a watch under $300",
+      "expected_agent": "order",
+      "expected_behavior": "Should search Electronics category for watches with price filter consideration",
+      "min_quality_score": 7
+    },
+    {
+      "id": "product_search_003",
+      "category": "product_search",
+      "query": "What smartphones do you have?",
+      "expected_agent": "order",
+      "expected_behavior": "Should search for smartphones/phones in Electronics",
+      "min_quality_score": 7
+    },
+    {
+      "id": "cart_add_001",
+      "category": "cart_operations",
+      "query": "Add iPhone 15 Pro Max to my cart",
+      "expected_agent": "order",
+      "expected_behavior": "Should add the specified product to cart",
+      "min_quality_score": 7
+    },
+    {
+      "id": "cart_view_001",
+      "category": "cart_operations",
+      "query": "What's in my cart?",
+      "expected_agent": "order",
+      "expected_behavior": "Should display current cart contents",
+      "min_quality_score": 7
+    },
+    {
+      "id": "cart_remove_001",
+      "category": "cart_operations",
+      "query": "Remove the iPhone from my cart",
+      "expected_agent": "order",
+      "expected_behavior": "Should remove specified item from cart",
+      "min_quality_score": 7
+    },
+    {
+      "id": "policy_001",
+      "category": "general_info",
+      "query": "What is your return policy?",
+      "expected_agent": "general_info",
+      "expected_behavior": "Should provide return policy information from handbook",
+      "min_quality_score": 7
+    },
+    {
+      "id": "policy_002",
+      "category": "general_info",
+      "query": "How long does shipping take?",
+      "expected_agent": "general_info",
+      "expected_behavior": "Should provide shipping timeframe information",
+      "min_quality_score": 7
+    },
+    {
+      "id": "policy_003",
+      "category": "general_info",
+      "query": "Do you offer free shipping?",
+      "expected_agent": "general_info",
+      "expected_behavior": "Should explain shipping cost policy",
+      "min_quality_score": 7
+    },
+    {
+      "id": "checkout_001",
+      "category": "checkout",
+      "query": "I want to checkout",
+      "expected_agent": "order",
+      "expected_behavior": "Should initiate checkout flow, asking for shipping info if needed",
+      "min_quality_score": 7
+    },
+    {
+      "id": "shipping_001",
+      "category": "shipping",
+      "query": "Update my shipping address to 123 Main St, New York, NY 10001",
+      "expected_agent": "order",
+      "expected_behavior": "Should update shipping information with provided address",
+      "min_quality_score": 7
+    },
+    {
+      "id": "order_history_001",
+      "category": "orders",
+      "query": "Show me my recent orders",
+      "expected_agent": "order",
+      "expected_behavior": "Should retrieve and display recent order history",
+      "min_quality_score": 7
+    },
+    {
+      "id": "voucher_001",
+      "category": "voucher",
+      "query": "Generate a voucher for $100",
+      "expected_agent": "order",
+      "expected_behavior": "Should generate a new voucher with $100 balance",
+      "min_quality_score": 7
+    },
+    {
+      "id": "compound_001",
+      "category": "compound_query",
+      "query": "Add 2 Nike shoes and 1 Adidas shirt to my cart",
+      "expected_agent": "order",
+      "expected_behavior": "Should handle compound add request, searching and adding multiple items",
+      "min_quality_score": 6
+    },
+    {
+      "id": "greeting_001",
+      "category": "conversation",
+      "query": "Hello!",
+      "expected_agent": "none",
+      "expected_behavior": "Should provide a friendly greeting directly without routing to agents",
+      "min_quality_score": 7
+    }
+  ]
+}
+

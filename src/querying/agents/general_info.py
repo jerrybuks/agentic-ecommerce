@@ -1,6 +1,7 @@
 """General information agent using OpenAI function calling."""
 import asyncio
-from openai import AsyncOpenAI
+from langfuse.openai import AsyncOpenAI
+from langfuse import get_client
 from src.querying.tools.retrieval import get_handbook_retrieval_function
 from src.utils.llm import create_chat_completion_with_timeout
 
@@ -49,30 +50,40 @@ class GeneralInfoAgent:
         """
         from src.querying.tools.retrieval import execute_handbook_retrieval
         
-        # Directly call retrieval (no initial LLM call needed since we only have one tool)
-        tool_result, docs_with_similarity = execute_handbook_retrieval(
-            query=query,
-            k=3,
-            min_similarity=self.min_similarity,
-            vectorstore=self.vectorstore
-        )
+        langfuse = get_client()
         
-        sources = list(docs_with_similarity)
-        
-        # Generate final response with retrieved context
-        # Include retrieved information in the user message
-        user_message = f"{query}\n\nRelevant information from the handbook:\n{tool_result}"
-        messages = [
-            {"role": "system", "content": self.system_prompt},
-            {"role": "user", "content": user_message}
-        ]
-        
-        try:
-            final_response = await create_chat_completion_with_timeout(
-                client=self.client,
-                model=self.model,
-                messages=messages
+        with langfuse.start_as_current_observation(
+            as_type="span",
+            name="general-info-agent",
+            input={"query": query}
+        ) as agent_span:
+            # Directly call retrieval (no initial LLM call needed since we only have one tool)
+            tool_result, docs_with_similarity = execute_handbook_retrieval(
+                query=query,
+                k=3,
+                min_similarity=self.min_similarity,
+                vectorstore=self.vectorstore
             )
-            return (final_response.choices[0].message.content, sources)
-        except asyncio.TimeoutError:
-            return ("I apologize, but the request took too long to process. Please try again.", sources)
+            
+            sources = list(docs_with_similarity)
+            
+            # Generate final response with retrieved context
+            # Include retrieved information in the user message
+            user_message = f"{query}\n\nRelevant information from the handbook:\n{tool_result}"
+            messages = [
+                {"role": "system", "content": self.system_prompt},
+                {"role": "user", "content": user_message}
+            ]
+            
+            try:
+                final_response = await create_chat_completion_with_timeout(
+                    client=self.client,
+                    model=self.model,
+                    messages=messages
+                )
+                response_text = final_response.choices[0].message.content
+                agent_span.update(output={"response": response_text[:500] if response_text else "", "sources_count": len(sources)})
+                return (response_text, sources)
+            except asyncio.TimeoutError:
+                agent_span.update(output={"error": "timeout"})
+                return ("I apologize, but the request took too long to process. Please try again.", sources)

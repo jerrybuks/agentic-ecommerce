@@ -76,6 +76,26 @@ agentic-ecommerce/
         └── storage.py          # Storage utilities (ChromaDB operations)
 ```
 
+## Testing
+
+Run golden dataset tests against the chatbot API:
+
+```bash
+# Run all tests
+python -m tests.test_runner
+
+# Run by category
+python -m tests.test_runner --category cart_operations
+
+# Run single test
+python -m tests.test_runner --id product_search_001
+
+# Save results to file
+python -m tests.test_runner --save
+```
+
+Test cases are defined in `data/golden_data/test_cases.json`.
+
 ## Database
 
 The application uses PostgreSQL 17 with SQLAlchemy ORM. The database tables are automatically created when the application starts.

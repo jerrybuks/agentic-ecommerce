@@ -1,7 +1,7 @@
 """Utility functions for LLM operations."""
 import asyncio
 from typing import Any, Callable, Dict, Optional
-from openai import AsyncOpenAI
+from langfuse.openai import AsyncOpenAI
 from src.config import settings
 
 # Database operation timeout (5 seconds - should be much faster)
