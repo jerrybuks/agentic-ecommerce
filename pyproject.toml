@@ -6,20 +6,20 @@ build-backend = "setuptools.build_meta"
 name = "agentic-ecommerce"
 version = "0.1.0"
 description = "Ecommerce App with AI agents"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 
 dependencies = [
     "fastapi[standard]==0.124.2",
     "sqlalchemy==2.0.23",
-    "psycopg2-binary==2.9.9",
+    "psycopg2-binary>=2.9.0",
     "python-dotenv==1.0.0",
-    "pydantic==2.5.3",
-    "pydantic-settings==2.1.0",
-    "langchain>=0.1.0",
-    "langchain-community>=0.0.10",
-    "langchain-core>=0.1.10",
-    "langchain-openai>=0.0.5",
-    "langchain-chroma>=0.1.0"
+    "pydantic>=2.5.3",
+    "pydantic-settings>=2.1.0",
+    "openai>=1.0.0",
+    "langchain-community>=0.3.0",
+    "langchain-core>=1.0.0",
+    "langchain-openai>=1.0.0",
+    "langchain-chroma>=1.0.0"
 ]
 
 [project.optional-dependencies]

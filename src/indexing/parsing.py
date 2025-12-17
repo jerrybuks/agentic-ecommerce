@@ -105,6 +105,7 @@ class ProductParser:
             "price": float(product.price),  # For price range filtering
             "is_active": product.is_active,  # For filtering active products
             "is_featured": product.is_featured,  # For filtering featured products
+            "primary_image": product.primary_image or "",  # Primary image URL
         }
         
         # Add tags to metadata for filtering (convert list to comma-separated string)
