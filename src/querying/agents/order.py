@@ -1,6 +1,7 @@
 """Order agent using OpenAI function calling."""
 import asyncio
-from openai import AsyncOpenAI
+from langfuse.openai import AsyncOpenAI
+from langfuse import get_client
 from src.querying.tools.retrieval import get_product_search_function
 from src.querying.tools.order import (
     get_add_to_cart_function,
@@ -272,6 +273,8 @@ class OrderAgent:
         from langchain_core.documents import Document
         import json
         
+        langfuse = get_client()
+
         # Build messages with conversation history if provided
         messages = [{"role": "system", "content": self.system_prompt}]
         if conversation_history:
@@ -281,87 +284,96 @@ class OrderAgent:
         sources = []
         query_params = {}  # Track query parameters used in search_products
         
-        # Loop until completion (max 6 steps for safety)
-        for step in range(6):
-            try:
-                response = await create_chat_completion_with_timeout(
-                    client=self.client,
-                    model=self.model,
-                    messages=messages,
-                    tools=self.tools,
-                    tool_choice="auto"
-                )
-            except asyncio.TimeoutError:
-                return ("I apologize, but the request took too long to process. Please try again.", sources, query_params)
-            
-            message = response.choices[0].message
-            
-            # Log tool calls
-            if message.tool_calls:
-                print(f"[ORDER AGENT] Step {step+1}: Tool calls returned: {len(message.tool_calls)}")
-                for i, tc in enumerate(message.tool_calls):
-                    args = json.loads(tc.function.arguments) if tc.function.arguments else {}
-                    print(f"  Tool call #{i+1}: {tc.function.name} with args: {args}, tool_call_id: {tc.id}")
-            else:
-                print(f"[ORDER AGENT] Step {step+1}: No tool calls returned, content: {message.content[:100] if message.content else 'None'}")
-            
-            # 1️⃣ If no tool call → we're done
-            if not message.tool_calls:
-                return (message.content or "", sources, query_params)
-
-            # 2️⃣ Enforce: no duplicate tool calls with identical signature (function + args)
-            signatures = set()
-            for tc in message.tool_calls:
-                args = json.loads(tc.function.arguments) if tc.function.arguments else {}
-                key = (tc.function.name, json.dumps(args, sort_keys=True))
-                if key in signatures:
-                    raise RuntimeError(
-                        f"OrderAgent violated rule: duplicate tool calls with same args: {tc.function.name}"
+        with langfuse.start_as_current_observation(
+            as_type="span",
+            name="order-agent",
+            input={"query": query, "session_id": session_id}
+        ) as agent_span:
+            # Loop until completion (max 6 steps for safety)
+            for step in range(6):
+                try:
+                    response = await create_chat_completion_with_timeout(
+                        client=self.client,
+                        model=self.model,
+                        messages=messages,
+                        tools=self.tools,
+                        tool_choice="auto"
                     )
-                signatures.add(key)
+                except asyncio.TimeoutError:
+                    agent_span.update(output={"error": "timeout", "steps_completed": step})
+                    return ("I apologize, but the request took too long to process. Please try again.", sources, query_params)
+                
+                message = response.choices[0].message
+                
+                # Log tool calls
+                if message.tool_calls:
+                    print(f"[ORDER AGENT] Step {step+1}: Tool calls returned: {len(message.tool_calls)}")
+                    for i, tc in enumerate(message.tool_calls):
+                        args = json.loads(tc.function.arguments) if tc.function.arguments else {}
+                        print(f"  Tool call #{i+1}: {tc.function.name} with args: {args}, tool_call_id: {tc.id}")
+                else:
+                    print(f"[ORDER AGENT] Step {step+1}: No tool calls returned, content: {message.content[:100] if message.content else 'None'}")
+                
+                # 1️⃣ If no tool call → we're done
+                if not message.tool_calls:
+                    agent_span.update(output={"response": (message.content or "")[:500], "steps_completed": step + 1})
+                    return (message.content or "", sources, query_params)
 
-            # Assistant message with ALL tool calls
-            messages.append({
-                "role": "assistant",
-                "content": message.content,
-                "tool_calls": [
-                    {
-                        "id": tc.id,
-                        "type": "function",
-                        "function": {
-                            "name": tc.function.name,
-                            "arguments": tc.function.arguments
-                        }
-                    } for tc in message.tool_calls
-                ]
-            })
+                # 2️⃣ Enforce: no duplicate tool calls with identical signature (function + args)
+                signatures = set()
+                for tc in message.tool_calls:
+                    args = json.loads(tc.function.arguments) if tc.function.arguments else {}
+                    key = (tc.function.name, json.dumps(args, sort_keys=True))
+                    if key in signatures:
+                        agent_span.update(output={"error": "duplicate_tool_calls", "tool": tc.function.name})
+                        raise RuntimeError(
+                            f"OrderAgent violated rule: duplicate tool calls with same args: {tc.function.name}"
+                        )
+                    signatures.add(key)
 
-            # 3️⃣ Execute each tool call
-            for tool_call in message.tool_calls:
-                # Capture query params for search_products
-                if tool_call.function.name == "search_products":
-                    function_args = json.loads(tool_call.function.arguments)
-                    search_query = function_args.get("query", query)
-                    query_params["query"] = search_query
-                    if function_args.get("category"):
-                        query_params["category"] = function_args.get("category")
-                    if function_args.get("brand"):
-                        query_params["brand"] = function_args.get("brand")
-                    if function_args.get("min_price") is not None:
-                        query_params["min_price"] = function_args.get("min_price")
-                    if function_args.get("max_price") is not None:
-                        query_params["max_price"] = function_args.get("max_price")
-                    if function_args.get("is_featured") is not None:
-                        query_params["is_featured"] = function_args.get("is_featured")
-
-                tool_result, tool_sources = await self._execute_tool(tool_call, session_id, query)
-                sources.extend(tool_sources)
-
+                # Assistant message with ALL tool calls
                 messages.append({
-                    "role": "tool",
-                    "content": tool_result,
-                    "tool_call_id": tool_call.id
+                    "role": "assistant",
+                    "content": message.content,
+                    "tool_calls": [
+                        {
+                            "id": tc.id,
+                            "type": "function",
+                            "function": {
+                                "name": tc.function.name,
+                                "arguments": tc.function.arguments
+                            }
+                        } for tc in message.tool_calls
+                    ]
                 })
-        
-        # If we've exhausted steps, return the last response
-        return ("I apologize, but the request took too many steps to complete. Please try again.", sources, query_params)
+
+                # 3️⃣ Execute each tool call
+                for tool_call in message.tool_calls:
+                    # Capture query params for search_products
+                    if tool_call.function.name == "search_products":
+                        function_args = json.loads(tool_call.function.arguments)
+                        search_query = function_args.get("query", query)
+                        query_params["query"] = search_query
+                        if function_args.get("category"):
+                            query_params["category"] = function_args.get("category")
+                        if function_args.get("brand"):
+                            query_params["brand"] = function_args.get("brand")
+                        if function_args.get("min_price") is not None:
+                            query_params["min_price"] = function_args.get("min_price")
+                        if function_args.get("max_price") is not None:
+                            query_params["max_price"] = function_args.get("max_price")
+                        if function_args.get("is_featured") is not None:
+                            query_params["is_featured"] = function_args.get("is_featured")
+
+                    tool_result, tool_sources = await self._execute_tool(tool_call, session_id, query)
+                    sources.extend(tool_sources)
+
+                    messages.append({
+                        "role": "tool",
+                        "content": tool_result,
+                        "tool_call_id": tool_call.id
+                    })
+            
+            # If we've exhausted steps
+            agent_span.update(output={"error": "max_steps_exceeded", "steps_completed": 6})
+            return ("I apologize, but the request took too many steps to complete. Please try again.", sources, query_params)

@@ -1,6 +1,7 @@
 """User routes for querying and voucher management."""
 import hashlib
 import secrets
+import time
 from fastapi import APIRouter, HTTPException, Request, Depends, status, Query
 from sqlalchemy.orm import Session
 from sqlalchemy import or_, and_
@@ -94,6 +95,7 @@ class QueryResponse(BaseModel):
     routing_mode: str = Field(..., description="Routing mode: single, sequential, parallel, or direct")
     sources: List[SourceResponse] = Field(default_factory=list, description="Retrieved source documents")
     session_id: str = Field(..., description="Session ID for conversation context")
+    elapsed_time_seconds: Optional[float] = Field(None, description="TEMP: Query execution time in seconds")
 
 
 @router.post("/query", response_model=QueryResponse)
@@ -117,6 +119,9 @@ async def query(request: QueryRequest, http_request: Request):
     """
     global query_service
     
+    # TEMP: Start timing
+    start_time = time.time()
+    
     try:
         # Initialize query service with vector stores from app state (lazy initialization)
         if query_service is None:
@@ -136,6 +141,10 @@ async def query(request: QueryRequest, http_request: Request):
             session_id=session_id,
             min_similarity=request.min_similarity
         )
+        
+        # TEMP: Log query time
+        elapsed = time.time() - start_time
+        print(f"[TIMING] Query completed in {elapsed:.2f}s: {request.query[:50]}...")
         
         # Format sources (sources are always (doc, similarity) tuples)
         sources = []
@@ -157,7 +166,8 @@ async def query(request: QueryRequest, http_request: Request):
             agents_used=result.get("agents_used", []),
             routing_mode=result.get("routing_mode", "single"),
             sources=sources,
-            session_id=session_id
+            session_id=session_id,
+            elapsed_time_seconds=round(elapsed, 2)
         )
     except Exception as e:
         raise HTTPException(

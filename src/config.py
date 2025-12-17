@@ -1,6 +1,11 @@
 """Configuration settings for the application."""
 from pydantic_settings import BaseSettings
 from pydantic import Field
+from dotenv import load_dotenv
+
+# Ensure .env values are loaded into os.environ so downstream clients (e.g., Langfuse)
+# can read them at import-time.
+load_dotenv()
 
 
 class Settings(BaseSettings):
@@ -18,6 +23,10 @@ class Settings(BaseSettings):
     llm_timeout: float = Field(default=20.0, alias="LLM_TIMEOUT")
     project_name: str = "Agentic Ecommerce"
     api_version: str = "v1"
+    # Langfuse observability
+    langfuse_base_url: str = Field(default="", alias="LANGFUSE_BASE_URL")
+    langfuse_secret_key: str = Field(default="", alias="LANGFUSE_SECRET_KEY")
+    langfuse_public_key: str = Field(default="", alias="LANGFUSE_PUBLIC_KEY")
     
     class Config:
         env_file = ".env"
