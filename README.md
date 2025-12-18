@@ -2,6 +2,13 @@
 
 An ecommerce platform with AI agents and admin product management.
 
+## Live Demo & Monitoring
+
+- **Product Demo**: [https://agentic-ecommerce-fe.vercel.app/](https://agentic-ecommerce-fe.vercel.app/)
+- **API Documentation**: [https://agentic-ecommerce.onrender.com/docs](https://agentic-ecommerce.onrender.com/docs)
+- **Status Page**: [https://stats.uptimerobot.com/5z2EBCHShQ](https://stats.uptimerobot.com/5z2EBCHShQ)
+- **Report**: [https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.md](https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.md)
+
 ## Setup
 
 1. **Install dependencies:**
@@ -12,14 +19,17 @@ An ecommerce platform with AI agents and admin product management.
 2. **Configure environment:**
    - Create a `.env` file with the following variables:
      ```
-     DATABASE_URL=postgresql://user:password@host:port/database
+     DATABASE_URL=postgresql://user:password@host:port/database # You can use [Neon](https://neon.com/) its free
      OPENAI_API_KEY=your_openai_api_key_here
-     OPENAI_MODEL=text-embedding-ada-002
      OPENAI_API_BASE=https://openrouter.ai/api/v1  # Optional: for OpenRouter or other providers
+     LANGFUSE_PUBLIC_KEY=langfuse_public_key
+     LANGFUSE_SECRET_KEY=langfuse_secret_key
+     LANGFUSE_BASE_URL=https://cloud.langfuse.com
      ```
    - Update `DATABASE_URL` with your Neon PostgreSQL connection string
    - Add your OpenAI API key for embeddings
    - If using OpenRouter, set `OPENAI_API_BASE` to `https://openrouter.ai/api/v1`
+   - add your langfuse project details
 
 3. **Run the application:**
    ```bash
@@ -31,9 +41,30 @@ An ecommerce platform with AI agents and admin product management.
    - Interactive docs: http://localhost:8000/docs
    - Alternative docs: http://localhost:8000/redoc
 
-## Admin API Endpoints
+## API Endpoints
 
-### Products
+### User Endpoints
+
+#### Query & Chat
+- `POST /user/query` - Process a user query through the multi-agent system (chatbot)
+
+#### Vouchers
+- `POST /user/vouchers/generate` - Generate a new $2000 USD voucher code (returns existing unused voucher if available)
+
+#### Cart
+- `GET /user/cart` - Get the current user's shopping cart
+
+#### Orders
+- `GET /user/orders` - Get all orders for the current user (includes shipping address)
+
+#### Products
+- `GET /user/products` - Get products with search and filters (pagination, category, brand, price range, tags)
+- `GET /user/products/featured` - Get featured products
+- `GET /user/products/{product_id}` - Get product details by ID
+
+### Admin API Endpoints
+
+#### Products
 
 - `POST /admin/products/` - Create a new product
 - `GET /admin/products/` - Get all products (with optional filters)
