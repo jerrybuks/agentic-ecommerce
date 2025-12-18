@@ -5,72 +5,74 @@
 ### High-Level Flow Diagram
 
 ```mermaid
-flowchart TD
-    %% User Input Layer (Blue)
+flowchart TB
+    %% Top: Request Entry
     User[👤 User Query]:::userStyle
-    API[🌐 FastAPI Endpoint<br/>POST /user/query]:::apiStyle
-    Middleware[🛡️ Token Validation<br/>Max 300 tokens]:::middlewareStyle
-    QueryService[📦 Query Service<br/>Session & Memory]:::serviceStyle
+    API[🌐 FastAPI API]:::apiStyle
+    Middleware[🛡️ Token Validation]:::middlewareStyle
+    QueryService[📦 Query Service]:::serviceStyle
     
-    %% Orchestration Layer (Green)
-    Orchestrator[🎯 Orchestrator Agent<br/>GPT-4o-mini<br/>LLM Router]:::orchestratorStyle
-    Route{🔀 Routing<br/>Decision?}:::decisionStyle
+    %% Center: Orchestration
+    Orchestrator[🎯 Orchestrator Agent<br/>LLM Router]:::orchestratorStyle
+    Route{🔀 Routing<br/>Decision}:::decisionStyle
     
-    %% Agent Layer (Orange)
+    %% Agents Row (Side by Side)
     GeneralInfo[📚 General Info Agent]:::agentStyle
     OrderAgent[🛒 Order Agent]:::agentStyle
-    Direct[💬 Direct Response<br/>Greetings]:::directStyle
+    Direct[💬 Direct Response]:::directStyle
     
-    %% Data Layer (Purple)
+    %% Data Stores (Below Each Agent)
     HandbookVS[(📖 Handbook<br/>Vector Store)]:::dataStyle
     ProductsVS[(🛍️ Products<br/>Vector Store)]:::dataStyle
-    CartTools[🛒 Cart Manager<br/>In-Memory]:::dataStyle
-    DBTools[(💾 Database<br/>Orders & Shipping)]:::dataStyle
+    CartTools[🛒 Cart Manager]:::dataStyle
+    DBTools[(💾 Database)]:::dataStyle
     
-    %% Response Layer (Green)
-    Synthesize[✨ Synthesize<br/>Final Response]:::orchestratorStyle
-    Memory[💾 Store in<br/>Conversation Memory]:::serviceStyle
+    %% Response Synthesis
+    Synthesize[✨ Synthesize Response]:::orchestratorStyle
+    Memory[💾 Conversation Memory]:::serviceStyle
     
-    %% Evaluation Layer (Yellow)
-    Evaluation[⚖️ LLM-as-Judge<br/>Quality Evaluation]:::evalStyle
+    %% Observability (Right Side)
     Langfuse[📊 Langfuse<br/>Observability]:::langfuseStyle
+    Evaluation[⚖️ LLM-as-Judge<br/>Evaluation]:::evalStyle
     
-    %% Main Flow (Top to Bottom)
-    User -->|1. Query| API
-    API -->|2. Validate| Middleware
-    Middleware -->|3. Process| QueryService
-    QueryService -->|4. Route| Orchestrator
-    Orchestrator -->|5. Decide| Route
+    %% Main Request Flow (Vertical, Left Column)
+    User -->|1| API
+    API -->|2| Middleware
+    Middleware -->|3| QueryService
+    QueryService -->|4| Orchestrator
+    Orchestrator -->|5| Route
     
-    %% Routing Paths
+    %% Routing (Horizontal, No Crossings)
     Route -->|General Info| GeneralInfo
     Route -->|Product/Order| OrderAgent
     Route -->|Greeting| Direct
     
-    %% Agent Operations
+    %% General Info Flow (Left Branch, Vertical)
     GeneralInfo -->|Search| HandbookVS
+    HandbookVS -->|Results| GeneralInfo
+    GeneralInfo -->|Response| Synthesize
+    
+    %% Order Agent Flow (Center Branch, Vertical)
     OrderAgent -->|Search| ProductsVS
     OrderAgent -->|Cart Ops| CartTools
     OrderAgent -->|DB Ops| DBTools
-    
-    %% Response Flow
-    HandbookVS -->|Results| GeneralInfo
     ProductsVS -->|Results| OrderAgent
     CartTools -->|Results| OrderAgent
     DBTools -->|Results| OrderAgent
-    
-    GeneralInfo -->|Response| Synthesize
     OrderAgent -->|Response| Synthesize
+    
+    %% Direct Response (Right Branch)
     Direct -->|Response| Synthesize
     
-    Synthesize -->|6. Store| Memory
-    Synthesize -->|7. Return| User
-    Synthesize -.->|8. Async| Evaluation
+    %% Final Flow (Vertical, Left Column)
+    Synthesize -->|6| Memory
+    Synthesize -->|7| User
     
-    %% Observability (Background)
+    %% Observability (Right Side, Dotted, No Crossings)
     Orchestrator -.->|Traces| Langfuse
     GeneralInfo -.->|Traces| Langfuse
     OrderAgent -.->|Traces| Langfuse
+    Synthesize -.->|8 Async| Evaluation
     Evaluation -->|Scores| Langfuse
     
     %% Styling
