@@ -5,39 +5,86 @@
 ### High-Level Flow Diagram
 
 ```mermaid
-graph TB
-    User[User Query] -->|POST /user/query| API[FastAPI Endpoint]
-    API -->|Token Validation| Middleware[TokenValidationMiddleware<br/>Max 300 tokens]
-    Middleware -->|Valid Query| QueryService[QueryService]
+flowchart TD
+    %% User Input Layer (Blue)
+    User[👤 User Query]:::userStyle
+    API[🌐 FastAPI Endpoint<br/>POST /user/query]:::apiStyle
+    Middleware[🛡️ Token Validation<br/>Max 300 tokens]:::middlewareStyle
+    QueryService[📦 Query Service<br/>Session & Memory]:::serviceStyle
     
-    QueryService -->|Session ID| Memory[ConversationMemory]
-    QueryService -->|Route Query| Orchestrator[Orchestrator Agent<br/>GPT-4o-mini]
+    %% Orchestration Layer (Green)
+    Orchestrator[🎯 Orchestrator Agent<br/>GPT-4o-mini<br/>LLM Router]:::orchestratorStyle
+    Route{🔀 Routing<br/>Decision?}:::decisionStyle
     
-    Orchestrator -->|Routing Decision| Route{Query Type?}
+    %% Agent Layer (Orange)
+    GeneralInfo[📚 General Info Agent]:::agentStyle
+    OrderAgent[🛒 Order Agent]:::agentStyle
+    Direct[💬 Direct Response<br/>Greetings]:::directStyle
     
-    Route -->|General Info| GeneralInfo[General Info Agent<br/>+ Handbook Vector Store]
-    Route -->|Product/Order| OrderAgent[Order Agent<br/>+ Products Vector Store]
-    Route -->|Both| Parallel[Parallel Execution]
-    Route -->|Greeting| Direct[Direct Response]
+    %% Data Layer (Purple)
+    HandbookVS[(📖 Handbook<br/>Vector Store)]:::dataStyle
+    ProductsVS[(🛍️ Products<br/>Vector Store)]:::dataStyle
+    CartTools[🛒 Cart Manager<br/>In-Memory]:::dataStyle
+    DBTools[(💾 Database<br/>Orders & Shipping)]:::dataStyle
     
-    GeneralInfo -->|Retrieve| HandbookVS[ChromaDB<br/>general_handbook]
-    OrderAgent -->|Search| ProductsVS[ChromaDB<br/>products]
-    OrderAgent -->|Tools| CartTools[Cart Operations]
-    OrderAgent -->|Tools| OrderTools[Order Management]
-    OrderAgent -->|Tools| ShippingTools[Shipping Info]
+    %% Response Layer (Green)
+    Synthesize[✨ Synthesize<br/>Final Response]:::orchestratorStyle
+    Memory[💾 Store in<br/>Conversation Memory]:::serviceStyle
     
-    GeneralInfo -->|Response| Orchestrator
-    OrderAgent -->|Response| Orchestrator
+    %% Evaluation Layer (Yellow)
+    Evaluation[⚖️ LLM-as-Judge<br/>Quality Evaluation]:::evalStyle
+    Langfuse[📊 Langfuse<br/>Observability]:::langfuseStyle
     
-    Orchestrator -->|Synthesize| FinalResponse[Final Response]
-    FinalResponse -->|Store| Memory
-    FinalResponse -->|Async| Evaluation[LLM-as-Judge<br/>Quality Evaluation]
-    FinalResponse -->|Return| User
+    %% Main Flow (Top to Bottom)
+    User -->|1. Query| API
+    API -->|2. Validate| Middleware
+    Middleware -->|3. Process| QueryService
+    QueryService -->|4. Route| Orchestrator
+    Orchestrator -->|5. Decide| Route
     
-    Evaluation -->|Scores| Langfuse[Langfuse<br/>Observability]
-    Orchestrator -->|Traces| Langfuse
-    OrderAgent -->|Traces| Langfuse
-    GeneralInfo -->|Traces| Langfuse
+    %% Routing Paths
+    Route -->|General Info| GeneralInfo
+    Route -->|Product/Order| OrderAgent
+    Route -->|Greeting| Direct
+    
+    %% Agent Operations
+    GeneralInfo -->|Search| HandbookVS
+    OrderAgent -->|Search| ProductsVS
+    OrderAgent -->|Cart Ops| CartTools
+    OrderAgent -->|DB Ops| DBTools
+    
+    %% Response Flow
+    HandbookVS -->|Results| GeneralInfo
+    ProductsVS -->|Results| OrderAgent
+    CartTools -->|Results| OrderAgent
+    DBTools -->|Results| OrderAgent
+    
+    GeneralInfo -->|Response| Synthesize
+    OrderAgent -->|Response| Synthesize
+    Direct -->|Response| Synthesize
+    
+    Synthesize -->|6. Store| Memory
+    Synthesize -->|7. Return| User
+    Synthesize -.->|8. Async| Evaluation
+    
+    %% Observability (Background)
+    Orchestrator -.->|Traces| Langfuse
+    GeneralInfo -.->|Traces| Langfuse
+    OrderAgent -.->|Traces| Langfuse
+    Evaluation -->|Scores| Langfuse
+    
+    %% Styling
+    classDef userStyle fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    classDef apiStyle fill:#5B9BD5,stroke:#3D6B9A,stroke-width:2px,color:#fff
+    classDef middlewareStyle fill:#7FB3D3,stroke:#5A8BA8,stroke-width:2px,color:#fff
+    classDef serviceStyle fill:#9BC4E2,stroke:#6B8FA8,stroke-width:2px,color:#000
+    classDef orchestratorStyle fill:#90EE90,stroke:#5FA85F,stroke-width:3px,color:#000
+    classDef decisionStyle fill:#FFD700,stroke:#CCAA00,stroke-width:3px,color:#000
+    classDef agentStyle fill:#FFA500,stroke:#CC7700,stroke-width:3px,color:#000
+    classDef directStyle fill:#FFB347,stroke:#CC8F38,stroke-width:2px,color:#000
+    classDef dataStyle fill:#9370DB,stroke:#6B4C93,stroke-width:2px,color:#fff
+    classDef evalStyle fill:#FFD700,stroke:#CCAA00,stroke-width:2px,color:#000
+    classDef langfuseStyle fill:#FF6B6B,stroke:#CC5555,stroke-width:2px,color:#fff
 ```
 
 ### System Components
