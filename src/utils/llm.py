@@ -36,6 +36,12 @@ async def create_chat_completion_with_timeout(
     if timeout is None:
         timeout = settings.llm_timeout
     
+    # Set default temperature and top_p if not provided in kwargs
+    if "temperature" not in kwargs:
+        kwargs["temperature"] = settings.llm_temperature
+    if "top_p" not in kwargs:
+        kwargs["top_p"] = settings.llm_top_p
+    
     return await asyncio.wait_for(
         client.chat.completions.create(
             model=model,
