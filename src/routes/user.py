@@ -10,7 +10,7 @@ from pydantic import BaseModel, Field
 from src.querying.service import QueryService
 from src.config import settings
 from data.database.connection import get_db
-from data.database.order_models import Voucher, Order, OrderItem
+from data.database.order_models import Voucher, Order, OrderItem, ShippingInfo
 from data.database.product_model import Product
 from data.database.product_schema import ProductResponse
 from src.utils.cart import cart_manager
@@ -289,6 +289,17 @@ class OrderItemResponse(BaseModel):
         from_attributes = True
 
 
+class ShippingAddressResponse(BaseModel):
+    """Shipping address response model."""
+    full_name: str
+    address: str
+    city: str
+    zip_code: str
+    
+    class Config:
+        from_attributes = True
+
+
 class OrderResponse(BaseModel):
     """Order response model."""
     id: int
@@ -298,6 +309,7 @@ class OrderResponse(BaseModel):
     status: str
     created_at: str
     items: List[OrderItemResponse]
+    shipping_address: Optional[ShippingAddressResponse] = None
     
     class Config:
         from_attributes = True
@@ -322,7 +334,7 @@ def get_orders(http_request: Request, db: Session = Depends(get_db)):
         Order.session_id == session_id
     ).order_by(Order.created_at.desc()).all()
     
-    # Build response with order items
+    # Build response with order items and shipping address
     order_responses = []
     for order in orders:
         order_items = [
@@ -337,6 +349,20 @@ def get_orders(http_request: Request, db: Session = Depends(get_db)):
             for item in order.items
         ]
         
+        # Get shipping address for this session
+        shipping_info = db.query(ShippingInfo).filter(
+            ShippingInfo.session_id == order.session_id
+        ).order_by(ShippingInfo.updated_at.desc()).first()
+        
+        shipping_address = None
+        if shipping_info:
+            shipping_address = ShippingAddressResponse(
+                full_name=shipping_info.full_name,
+                address=shipping_info.address,
+                city=shipping_info.city,
+                zip_code=shipping_info.zip_code
+            )
+        
         order_responses.append(OrderResponse(
             id=order.id,
             session_id=order.session_id,
@@ -344,7 +370,8 @@ def get_orders(http_request: Request, db: Session = Depends(get_db)):
             total_amount=float(order.total_amount),
             status=order.status,
             created_at=order.created_at.isoformat(),
-            items=order_items
+            items=order_items,
+            shipping_address=shipping_address
         ))
     
     return order_responses
@@ -415,13 +442,13 @@ def get_products(
             )
         )
     
-    # Apply category filter
+    # Apply category filter (case-insensitive)
     if category:
-        query = query.filter(Product.category == category)
+        query = query.filter(Product.category.ilike(category))
     
-    # Apply brand filter
+    # Apply brand filter (case-insensitive)
     if brand:
-        query = query.filter(Product.brand == brand)
+        query = query.filter(Product.brand.ilike(brand))
     
     # Apply price range filters
     if min_price is not None:
@@ -471,5 +498,47 @@ def get_products(
         page=page,
         page_size=page_size
     )
+
+
+@router.get("/products/featured", response_model=List[ProductResponse], summary="Get featured products")
+def get_featured_products(
+    db: Session = Depends(get_db),
+    limit: int = Query(10, ge=1, le=50, description="Maximum number of featured products to return")
+):
+    """
+    Get featured products.
+    
+    Returns active products marked as featured, ordered by creation date.
+    """
+    products = db.query(Product).filter(
+        Product.is_active == True,
+        Product.is_featured == True
+    ).order_by(Product.created_at.desc()).limit(limit).all()
+    
+    return [ProductResponse.model_validate(product) for product in products]
+
+
+@router.get("/products/{product_id}", response_model=ProductResponse, summary="Get product by ID")
+def get_product_by_id(
+    product_id: int,
+    db: Session = Depends(get_db)
+):
+    """
+    Get a single product by its ID.
+    
+    Returns the product details if found and active.
+    """
+    product = db.query(Product).filter(
+        Product.id == product_id,
+        Product.is_active == True
+    ).first()
+    
+    if not product:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Product with ID {product_id} not found"
+        )
+    
+    return ProductResponse.model_validate(product)
 
 

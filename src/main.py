@@ -9,9 +9,13 @@ if str(project_root) not in sys.path:
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 from src.config import settings
 from src.routes.admin import router as admin_router
 from src.routes.user import router as user_router
+from src.middlewares.tokenValidationMiddleware import TokenValidationMiddleware
 from data.database.connection import engine, Base
 # Import order models to ensure tables are created
 from data.database.order_models import Order, OrderItem, Voucher, ShippingInfo
@@ -48,6 +52,11 @@ print("✓ Vector stores initialized")
 app.state.handbook_vectorstore = handbook_vectorstore
 app.state.products_vectorstore = products_vectorstore
 
+# Initialize rate limiter
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
@@ -56,6 +65,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Add token validation middleware
+app.add_middleware(TokenValidationMiddleware)
 
 # Include routers
 app.include_router(admin_router)

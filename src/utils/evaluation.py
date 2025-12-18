@@ -123,7 +123,9 @@ async def evaluate_response(
                 {"role": "system", "content": "You are an expert evaluator. Always respond with valid JSON only."},
                 {"role": "user", "content": eval_prompt}
             ],
-            response_format={"type": "json_object"}
+            response_format={"type": "json_object"},
+            temperature=settings.llm_temperature,
+            top_p=settings.llm_top_p
         )
         
         # Parse the evaluation result
