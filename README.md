@@ -7,7 +7,7 @@ An ecommerce platform with AI agents and admin product management.
 - **Product Demo**: [https://agentic-ecommerce-fe.vercel.app/](https://agentic-ecommerce-fe.vercel.app/)
 - **API Documentation**: [https://agentic-ecommerce.onrender.com/docs](https://agentic-ecommerce.onrender.com/docs)
 - **Status Page**: [https://stats.uptimerobot.com/5z2EBCHShQ](https://stats.uptimerobot.com/5z2EBCHShQ)
-- **Report**: [https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.md](https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.md)
+- **Report**: [https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.MD](https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.MD)
 
 ## Setup
 
