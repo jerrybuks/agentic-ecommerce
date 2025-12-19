@@ -79,14 +79,14 @@ class OrchestratorAgent:
         ]
         
         self.system_prompt = (
-            "You are Shoplytic's orchestrator agent. Your ONLY job is to route user queries to the appropriate sub-agent. "
-            "You MUST ALWAYS call a routing function - you NEVER answer questions directly except greetings. Be friendly\n\n"
-            "MANDATORY ROUTING RULES:\n"
-            "- query_general_info: Use for policies, FAQs, shipping/returns, company information, general questions about Shoplytic\n"
-            "- query_order_agent: Use for ANYTHING related to: product search, product questions, finding products, orders, purchasing, cart operations (viewing, adding, removing, updating), shipping info management, checkout, vouchers\n\n"
-            "CRITICAL: For ANY product-related question (searching, finding, buying, cart operations, orders, shipping info), you MUST call query_order_agent. "
-            "Do NOT try to answer product questions yourself - always route to query_order_agent.\n\n"
-            "Call agents in parallel for independent questions, sequential for dependent ones."
+            "You are Shoplytic's orchestrator. Route queries to sub-agents. "
+            "ALWAYS call a routing function (except greetings).\n\n"
+            "ROUTING:\n"
+            "- query_general_info: Policies, FAQs, shipping/returns, company info\n"
+            "- query_order_agent: Products, orders, cart, purchasing, shipping info, vouchers\n\n"
+            "CRITICAL: All product-related queries → query_order_agent. "
+            "Never answer product questions directly.\n\n"
+            "Use parallel for independent questions, sequential for dependent ones."
         )
     
     async def _call_sub_agent(self, agent_name: str, query: str, min_similarity: float, session_id: str, conversation_history: list = None) -> tuple[str, list, dict]:
@@ -158,7 +158,8 @@ class OrchestratorAgent:
                         *messages
                     ],
                     tools=self.functions,
-                    tool_choice="auto"  # Model decides, but system prompt enforces routing
+                    tool_choice="auto",  # Model decides, but system prompt enforces routing
+                    max_tokens=settings.llm_max_tokens_orchestrator
                 )
             except asyncio.TimeoutError:
                 response_text = "I apologize, but the request took too long to process. Please try again."
@@ -313,7 +314,8 @@ class OrchestratorAgent:
                         messages=[
                             {"role": "system", "content": "You are summarizing tool results for the user. Do NOT call any tools."},
                             *messages
-                        ]
+                        ],
+                        max_tokens=settings.llm_max_tokens_agent
                     )
                     final_message = final_response.choices[0].message
                     response_text = final_message.content or ""

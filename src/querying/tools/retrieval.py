@@ -20,7 +20,7 @@ def get_handbook_retrieval_function(min_similarity: float = 0.75) -> Dict[str, A
         "type": "function",
         "function": {
             "name": "retrieve_handbook_info",
-            "description": "Retrieve information from the general customer handbook. Use this tool to answer questions about company policies, product offerings, refund policies, shipping information, and general company information.",
+            "description": "Retrieve handbook information for company policies, product offerings, refunds, shipping, and general company info.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -115,7 +115,7 @@ def get_product_search_function(min_similarity: float = 0.75) -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "search_products",
-            "description": "Search for products using semantic search. Extract ALL relevant filters from user queries (price ranges, categories, brands, featured status) and apply them. Use this tool ONLY when the user wants to find/browse products and not when adding to cart.",
+            "description": "Search products using semantic search. Extract filters: price ranges, categories, brands, featured status. Use for finding/browsing products, not for adding to cart.",
             "parameters": {
                 "type": "object",
                 "properties": {

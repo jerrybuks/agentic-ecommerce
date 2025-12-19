@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     # LLM generation parameters
     llm_temperature: float = Field(default=0.0, alias="LLM_TEMPERATURE")
     llm_top_p: float = Field(default=1.0, alias="LLM_TOP_P")
+    # LLM max tokens limits
+    llm_max_tokens_orchestrator: int = Field(default=150, alias="LLM_MAX_TOKENS_ORCHESTRATOR")
+    llm_max_tokens_agent: int = Field(default=500, alias="LLM_MAX_TOKENS_AGENT")
     project_name: str = "Agentic Ecommerce"
     api_version: str = "v1"
     # Langfuse observability

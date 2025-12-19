@@ -15,6 +15,7 @@ from src.querying.tools.order import (
     get_purchase_function
 )
 from src.utils.llm import create_chat_completion_with_timeout, run_db_operation_with_timeout
+from src.config import settings
 
 
 class OrderAgent:
@@ -52,38 +53,28 @@ class OrderAgent:
         ]
         
         self.system_prompt = (
-            "You are Shoplytic's Order Agent.\n\n"
-            "Your job is to decide the SINGLE NEXT ACTION needed to move the user toward completing their request.\n\n"
+            "You are Shoplytic's Order Agent. Decide the SINGLE NEXT ACTION per turn.\n\n"
             "RULES:\n"
-            "- In each turn, you may either:\n"
-            "  (A) Call exactly ONE tool, OR\n"
-            "  (B) Ask the user for missing required information\n"
-            "- NEVER call more than one tool in a single response\n"
-            "- NEVER perform actions without tools\n"
-            "- NEVER assume state — use tools to check state\n\n"
-            "- NEVER caluclate cart total and items in it by yourself, always use view_cart"
-            "Shopping flow:\n"
-            "1. Search products (search_products)\n"
-            "2. Add to cart (add_to_cart)\n"
-            "3. View cart (view_cart)\n"
-            "4. Collect shipping info (get_shipping_info, create_shipping_info, edit_shipping_info)\n"
-            "5. Purchase (purchase)\n\n"
-            "If information is missing (shipping info, voucher code, product choice), ask the user clearly what is needed.\n\n"
-            "Cart quantity interpretation:\n"
-            "- When user says 'add X items' and item already exists in cart: use edit_item_in_cart with new_quantity = current_quantity + X\n"
-            "- When user says 'remove X items' or 'reduce by X': use edit_item_in_cart to reduce quantity by X (new_quantity = current_quantity - X)\n"
-            "- Only use remove_from_cart when user wants to completely remove an item (no quantity specified, or 'remove all')\n"
-            "- Always check cart state with view_cart before adding/editing/removing to know current quantities\n\n"
-            "Tool usage:\n"
-            "- search_products: Find products. Extract filters: price (below/under/cheap → max_price, above/premium → min_price), category (laptops/phones/watche(s)/smartwatch → Electronics, shoes/clothes → Clothing, headphones → Accessories), brand, featured status\n"
-            "- add_to_cart: Add product to cart (requires product_id and optional quantity). ONLY use for products NOT already in cart\n"
-            "- view_cart: Check current cart contents\n"
-            "- edit_item_in_cart: Update quantity of item in cart. Use for quantity changes, adding to existing items, or reducing quantity\n"
-            "- remove_from_cart: Completely remove item from cart. ONLY use when user wants full removal, not quantity reduction\n"
-            "- get_shipping_info: Check if shipping information exists\n"
-            "- create_shipping_info: Create shipping information (requires fullName, address, city, zipCode)\n"
-            "- edit_shipping_info: Update shipping information\n"
-            "- get_orders: Get order information (optional order_id, otherwise returns 5 most recent)\n"
+            "- Call exactly ONE tool OR ask for missing info\n"
+            "- Never call multiple tools or perform actions without tools\n"
+            "- Never assume state — always check with tools\n"
+            "- Never calculate cart totals yourself — use view_cart\n\n"
+            "Shopping flow: Search → Add to cart → View cart → Shipping info → Purchase\n\n"
+            "Cart quantities:\n"
+            "- 'add X items' to existing: edit_item_in_cart (new_quantity = current + X)\n"
+            "- 'remove X items': edit_item_in_cart (new_quantity = current - X)\n"
+            "- Complete removal: remove_from_cart\n"
+            "- Always check cart with view_cart first\n\n"
+            "Tools:\n"
+            "- search_products: Find products. Filters: price (below/cheap → max_price, above/premium → min_price), category (laptops/phones/watches → Electronics, shoes/clothes → Clothing, headphones → Accessories), brand, featured\n"
+            "- add_to_cart: Add new product (product_id, optional quantity). Only for items NOT in cart\n"
+            "- view_cart: Check cart contents\n"
+            "- edit_item_in_cart: Update quantity\n"
+            "- remove_from_cart: Complete removal only\n"
+            "- get_shipping_info: Check if shipping info exists\n"
+            "- create_shipping_info: Create (requires fullName, address, city, zipCode)\n"
+            "- edit_shipping_info: Update shipping info\n"
+            "- get_orders: Get orders (optional order_id, else 5 most recent)\n"
             "- purchase: Complete purchase (requires voucher_code)"
         )
     
@@ -302,7 +293,8 @@ class OrderAgent:
                         model=self.model,
                         messages=messages,
                         tools=self.tools,
-                        tool_choice="auto"
+                        tool_choice="auto",
+                        max_tokens=settings.llm_max_tokens_agent
                     )
                 except asyncio.TimeoutError:
                     agent_span.update(output={"error": "timeout", "steps_completed": step})

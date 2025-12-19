@@ -21,7 +21,7 @@ def get_add_to_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "add_to_cart",
-            "description": "MANDATORY: Add a NEW product to the shopping cart. ONLY use this when the product is NOT already in the cart. If the product already exists in cart, use edit_item_in_cart instead to update the quantity. Always check cart state first with view_cart.",
+            "description": "Add a new product to cart. Only for products NOT already in cart. If product exists, use edit_item_in_cart. Check cart with view_cart first.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -95,7 +95,7 @@ def get_edit_item_in_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "edit_item_in_cart",
-            "description": "MANDATORY: Update the quantity of an item that is already in the cart. Use this when: (1) User wants to change quantity of existing item, (2) User says 'add X' but item already exists (set new_quantity = current + X), (3) User says 'remove X' or 'reduce by X' (set new_quantity = current - X). Always check cart state first with view_cart to know current quantity.",
+            "description": "Update quantity of item already in cart. Use when: changing quantity, adding to existing (new_quantity = current + X), or reducing (new_quantity = current - X). Check cart with view_cart first.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -149,7 +149,7 @@ def get_remove_from_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "remove_from_cart",
-            "description": "MANDATORY: Completely remove an item from the shopping cart (sets quantity to 0). ONLY use this when user wants to remove the entire item, not when they specify a quantity to reduce by. If user says 'remove X items', use edit_item_in_cart instead to reduce quantity by X.",
+            "description": "Completely remove item from cart. Only for full removal. If user says 'remove X items', use edit_item_in_cart to reduce quantity instead.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -197,7 +197,7 @@ def get_view_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "view_cart",
-            "description": "MANDATORY: View all items in the shopping cart with their quantities, prices, and total sum. You MUST call this tool when the user asks about their cart, wants to see what's in it, or review their order. Do NOT describe the cart from memory - always call this tool to get the current state.",
+            "description": "View cart contents with quantities, prices, and total. Always call this to get current cart state - do not describe from memory.",
             "parameters": {
                 "type": "object",
                 "properties": {},
@@ -248,7 +248,7 @@ def get_shipping_info_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "get_shipping_info",
-            "description": "MANDATORY: Check if the user has shipping information stored. You MUST call this tool when the user asks about shipping information or before purchase to see if shipping details are already available",
+            "description": "Check if shipping information exists. Call when user asks about shipping info or before purchase.",
             "parameters": {
                 "type": "object",
                 "properties": {},
@@ -305,7 +305,7 @@ def get_create_shipping_info_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "create_shipping_info",
-            "description": "MANDATORY: Create or update shipping information. You MUST call this tool when the user provides shipping information (fullName, address, city, zipCode). Extract all fields from the user's message and return as a JSON object with these exact fields: fullName, address, city, zipCode. All fields are required. Do NOT just acknowledge - actually call this tool to save the information.",
+            "description": "Create shipping information. Extract fullName, address, city, zipCode from user message. All fields required. Call this tool to save, don't just acknowledge.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -415,7 +415,7 @@ def get_edit_shipping_info_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "edit_shipping_info",
-            "description": "MANDATORY: Update existing shipping information. Extract only the fields the user wants to change (fullName, address, city, and/or zipCode) from the user's message. You can update one or more fields - partial updates are allowed. Return only the fields that need to be updated as a JSON object. You MUST call this tool when the user wants to change their shipping address or any part of it. Do NOT just acknowledge - actually call this tool.",
+            "description": "Update existing shipping information. Extract only fields to change (fullName, address, city, zipCode). Partial updates allowed. Call this tool to save changes.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -545,7 +545,7 @@ def get_get_orders_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "get_orders",
-            "description": "MANDATORY: Get order information. If order_id is provided, returns that specific order with all its items. If order_id is not provided, returns the 5 most recent orders for the user with their items. You MUST call this tool when the user asks about their orders, order history, or order status. Do NOT describe orders from memory - always call this tool to get the current state.",
+            "description": "Get order information. If order_id provided, returns that order. Otherwise returns 5 most recent orders. Always call this to get current state.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -650,7 +650,7 @@ def get_purchase_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "purchase",
-            "description": "MANDATORY: Complete the purchase of all items in the cart using a voucher. You MUST call this tool ONCE when the user provides a voucher code and wants to complete their purchase. CRITICAL: Call this function ONLY ONCE per purchase request - do NOT call it multiple times. When the user provides a voucher code, call this function IMMEDIATELY without generating any intermediate confirmation messages. Do NOT say 'let's proceed' or 'processing' - just call the function directly. Only use this AFTER items have been added to the cart using add_to_cart. The cart must NOT be empty. This is the final step after: (1) searching for products, (2) adding items to cart, (3) viewing cart, (4) providing shipping information, and (5) providing a voucher code. Requires a valid voucher code. Do NOT proceed to purchase if the cart is empty - first add items to cart.",
+            "description": "Complete purchase with voucher code. Call ONCE when user provides voucher code. Call immediately without confirmation messages. Requires: items in cart, shipping info, and valid voucher code.",
             "parameters": {
                 "type": "object",
                 "properties": {
