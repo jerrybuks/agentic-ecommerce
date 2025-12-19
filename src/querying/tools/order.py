@@ -21,7 +21,7 @@ def get_add_to_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "add_to_cart",
-            "description": "MANDATORY: Add a new product to the shopping cart. You MUST call this tool when the user wants to add a product to their cart. Only use this for products that are NOT already in the cart. If the product is already in the cart, use edit_item_in_cart instead to update the quantity. Do NOT just acknowledge - actually call this tool.",
+            "description": "MANDATORY: Add a NEW product to the shopping cart. ONLY use this when the product is NOT already in the cart. If the product already exists in cart, use edit_item_in_cart instead to update the quantity. Always check cart state first with view_cart.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -95,7 +95,7 @@ def get_edit_item_in_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "edit_item_in_cart",
-            "description": "MANDATORY: Update the quantity of an item that is already in the cart. You MUST call this tool when the user wants to change the quantity of an existing cart item. Do NOT just acknowledge the request - actually call this tool.",
+            "description": "MANDATORY: Update the quantity of an item that is already in the cart. Use this when: (1) User wants to change quantity of existing item, (2) User says 'add X' but item already exists (set new_quantity = current + X), (3) User says 'remove X' or 'reduce by X' (set new_quantity = current - X). Always check cart state first with view_cart to know current quantity.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -149,7 +149,7 @@ def get_remove_from_cart_function() -> Dict[str, Any]:
         "type": "function",
         "function": {
             "name": "remove_from_cart",
-            "description": "MANDATORY: Remove an item from the shopping cart. You MUST call this tool when the user wants to remove a product from their cart. Do NOT just say you'll remove it - actually call this tool.",
+            "description": "MANDATORY: Completely remove an item from the shopping cart (sets quantity to 0). ONLY use this when user wants to remove the entire item, not when they specify a quantity to reduce by. If user says 'remove X items', use edit_item_in_cart instead to reduce quantity by X.",
             "parameters": {
                 "type": "object",
                 "properties": {

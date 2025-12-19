@@ -147,8 +147,8 @@ class OrchestratorAgent:
             current_message = {"role": "user", "content": query}
             messages = history + [current_message]
             
-            # Call orchestrator with functions (this combines routing and agent selection)
-            # The LLM will determine routing mode implicitly by how it calls the functions
+            # Call orchestrator with functions (this combines order routing and tool selection)
+            # The LLM will determine order routing mode implicitly by how it calls the functions
             try:
                 response = await create_chat_completion_with_timeout(
                     client=self.client,
@@ -302,17 +302,21 @@ class OrchestratorAgent:
                 # Add all tool messages
                 messages.extend(tool_messages)
                 
-                # Call LLM back to synthesize final response from sub-agent responses
-                final_response = await create_chat_completion_with_timeout(
-                    client=self.client,
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": "You are summarizing tool results for the user. Do NOT call any tools."},
-                        *messages
-                    ]
-                )
-                final_message = final_response.choices[0].message
-                response_text = final_message.content or ""
+                # For single agent flows, response is already synthesized - use it directly
+                if routing_mode == "single" and len(agent_calls) == 1:
+                    response_text = sub_agent_responses[0]["response"]
+                else:
+                    # Multiple agents or sequential calls - need synthesis
+                    final_response = await create_chat_completion_with_timeout(
+                        client=self.client,
+                        model=self.model,
+                        messages=[
+                            {"role": "system", "content": "You are summarizing tool results for the user. Do NOT call any tools."},
+                            *messages
+                        ]
+                    )
+                    final_message = final_response.choices[0].message
+                    response_text = final_message.content or ""
             else:
                 # No tool calls - orchestrator responded directly (e.g., for greetings)
                 print(f"[ORCHESTRATOR] Direct response (no routing): {message.content[:100] if message.content else 'None'}")
