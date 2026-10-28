@@ -9,6 +9,29 @@ An ecommerce platform with AI agents and admin product management.
 - **Status Page**: [https://stats.uptimerobot.com/5z2EBCHShQ](https://stats.uptimerobot.com/5z2EBCHShQ)
 - **Report**: [https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.MD](https://github.com/jerrybuks/agentic-ecommerce/blob/main/reports/REPORT.MD)
 
+## Read-only MCP server
+
+The golden evaluation fixture is exposed through a small stdio MCP server. It only reads `data/golden_data/test_cases.json` and provides the `list_golden_cases` tool with an optional exact category filter.
+
+Run it directly:
+
+```bash
+PYTHONPATH="$PWD/src" uv run python src/golden_cases_mcp.py
+```
+
+Run it with MCP Inspector:
+
+```bash
+PYTHONPATH="$PWD/src" uv run mcp dev src/golden_cases_mcp.py
+```
+
+Related source and review:
+
+- [MCP server](https://github.com/jerrybuks/agentic-ecommerce/blob/codex/golden-cases-mcp/src/golden_cases_mcp.py)
+- [Golden-case loader](https://github.com/jerrybuks/agentic-ecommerce/blob/codex/golden-cases-mcp/src/golden_loader.py)
+- [MCP tests](https://github.com/jerrybuks/agentic-ecommerce/blob/codex/golden-cases-mcp/tests/test_golden_cases_mcp.py)
+- [Pull request](https://github.com/jerrybuks/agentic-ecommerce/pull/9)
+
 ## Setup
 
 1. **Install dependencies:**
