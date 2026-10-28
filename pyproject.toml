@@ -22,7 +22,8 @@ dependencies = [
     "langchain-openai>=1.0.0",
     "langchain-chroma>=1.0.0",
     "tiktoken>=0.5.0",
-    "slowapi>=0.1.9"
+    "slowapi>=0.1.9",
+    "mcp[cli]==2.3.0"
 ]
 
 [project.optional-dependencies]
